@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Datos Generales</title>
+</head>
+
+<body>
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Buscar Por</label>
+                <select name="cbodgtipotramite" class="diametro1 inputText01" matNativeControl required>
+                  <option value="2" selected>DESCRIPCION</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Expresion</label>
+                <input type="text" class="form-control inputText01" [(ngModel)]="expresion" placeholder="expresion"
+                  maxlength="100" placeholder="expresion" (keydown.enter)="buscarClick()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-1">
+    <div class="m-card">
+      <table mat-table [dataSource]="dataSourceVarios" class="table table-striped table-hover">
+        <!--<ng-container matColumnDef="carcodigo">
+          <th mat-header-cell *matHeaderCellDef>
+            <input type="checkbox" [(ngModel)]="selectAllChecked" (change)="toggleSelectAll()"> Select All
+          </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <input type="checkbox" [checked]="isChecked(i)" (change)="toggleChecked(i)">
+          </td>
+        </ng-container>-->
+
+        <ng-container matColumnDef="carcodigo">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let element"> {{element.carcodigo}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="cardescrip">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let element"> {{element.cardescrip}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsVarios"></tr>
+        <tr mat-row (click)="clickPersonal(row)" *matRowDef="let row; columns: displayedColumnsVarios;"></tr>
+      </table>
+    </div>
+  </div>
+
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick2()">
+                  <span class="material-icons">
+                    cancel_presentation
+                  </span>
+                </button>
+              </div>
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick()">
+                  <span class="material-icons">
+                    check_box
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

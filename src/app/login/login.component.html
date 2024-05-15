@@ -1,0 +1,43 @@
+<form [formGroup]="user" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+      <div class="m-3">
+          <div class="flex flex-col gap-4">
+              <h1 class="card-header text-center">Login</h1>
+              <div>
+                  <h4 class="text-center">Bienvenido al Sistema Integrado de Información</h4>
+                  <h4 class="text-center">SI DIGEMID</h4>
+              </div>
+          </div>
+          <div class="centrado flex flex-col gap-6 justify-center">
+              <div class="campo">
+                  <label for="username">Usuario</label>
+                  <input type="text" formControlName="username"  class="form-control inputText01" placeholder="Username"/>
+
+              </div>
+              <div class="campo">
+                  <label for="password">Clave</label> 
+                  <div class="flex gap-2">
+                      <input [type]="ocultar?'password':'text'" formControlName="password" class="form-control inputText01" placeholder="Password"/>
+                      <button class="boton-icon" style="height: 23px !important;" (click)="ocultar=!ocultar">
+                          <span class="material-icons">
+                              {{ocultar?'visibility_off':'visibility'}}
+                          </span>
+                      </button>
+                  </div>
+              </div>
+              <div class="campo">
+                  <button type="submit" [disabled]="loading" class="btn_login cursor-pointer">
+                  <div class="flex gap-2 justify-center items-center">
+                      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                      <label  class="cursor-pointer">Ingresar</label>
+                      <span class="material-icons">
+                          login
+                      </span>
+                  </div>
+                  </button>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
+

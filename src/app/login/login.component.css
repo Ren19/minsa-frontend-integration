@@ -1,0 +1,27 @@
+.btn_login{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid red;
+    padding: 5px;
+    background: red;
+    height: 40px;
+    color:white !important;
+}
+label{
+    font-family: 'Roboto-bold' !important;
+    font-size: 1rem;
+}
+.centrado{
+    padding: 20px;
+    height: 24vh;
+}
+h1{
+    font-size: 2rem !important;
+    text-transform: uppercase;
+}
+.form-row{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

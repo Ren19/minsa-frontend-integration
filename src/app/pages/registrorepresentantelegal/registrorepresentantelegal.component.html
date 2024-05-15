@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Datos Generales</title>
+</head>
+
+<body>
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-3 gap-3">
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+                <input type="text" [(ngModel)]="frmRepresentanteLegal.codPersonal" (keypress)="onKeyPress($event)" class="form-control inputText01">
+              </div>
+              <div class="campo">
+                <label for="">Tipo Cambio</label>
+                <select name="cboTipoCambio" matNativeControl [(ngModel)]="frmRepresentanteLegal.tipoCambio" class="diametro1 inputText01"  required>
+                  <option selected>Seleccionar</option>
+                  <option [value]="item.tccodigo" *ngFor="let item of cboTipoCambio">{{item.tcdescrip}}</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="">Situacion</label>
+                <select name="cboSituacion" matNativeControl [(ngModel)]="frmRepresentanteLegal.situacion" class="diametro1 inputText01" required>
+                  <option selected>Seleccionar</option>
+                  <option [value]="item.eddcodigo" *ngFor="let item of cboSituacion">{{item.edddescrip}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+         
+              <div class="campo">
+                <label for="">Apellidos y Nombres</label>
+                <input type="text" class="form-control inputText01" (keypress)="onKeyPressString($event) "
+                  [(ngModel)]="frmRepresentanteLegal.nombreApellido">
+                <button class="boton-icon bnt01" (click)="buscarRepresentanteLegal()">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Cargo</label>
+                <input type="text" class="form-control inputText01"(keypress)="onKeyPressString($event)" [(ngModel)]="frmRepresentanteLegal.cargo">
+                <button class="boton-icon bnt01" (click)="buscarCargo()">
+                  <span class="material-icons">
+                    search
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col lg:flex-row lg:gap-4">
+    <div class="m-card lg:w-1/2">
+      <h2>Inicio de Actividad</h2>
+      <div class="flex">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Tipo Doc.</label>
+
+                <select name="cboTipoDocumento" matNativeControl [(ngModel)]="frmRepresentanteLegal.tipoDocActividad" required  class="overflow-hidden w-full diametro1 inputText01">
+                  <option selected>Seleccionar</option>
+                  <option [value]="item.tddcodigo" *ngFor="let item of cboTipoDocumento">{{item.tdddescrip}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+                <input type="text" (keypress)="onKeyPress($event)" [(ngModel)]="frmRepresentanteLegal.codPersonalActividad1" class="overflow-hidden w-full form-control">
+              </div>
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+                <input type="text" (keypress)="onKeyPress($event)" [(ngModel)]="frmRepresentanteLegal.codPersonalActividad2"  class="overflow-hidden w-full form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="m-card lg:w-1/2">
+      <h2>Fin de Actividad</h2>
+      <div class="flex">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Tipo Doc.</label>
+                <select name="cboTipoDocumento2" matNativeControl [(ngModel)]="frmRepresentanteLegal.tipoDocFinActividad" class="overflow-hidden w-full diametro1 inputText01" required>
+                  <option selected>Seleccionar</option>
+                  <option [value]="item.tddcodigo" *ngFor="let item of cboTipoDocumento">{{item.tdddescrip}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="campo">
+            <div class="grid grid-cols-2 gap-2">
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+                <input type="text" (keypress)="onKeyPress($event)" [(ngModel)]="frmRepresentanteLegal.codPersonalFinActividad1"  class="overflow-hidden w-full form-control">
+              </div>
+              <div class="campo">
+                <label for="">Cod. Personal</label>
+                <input type="text" (keypress)="onKeyPress($event)" [(ngModel)]="frmRepresentanteLegal.codPersonalFinActividad2" class="overflow-hidden w-full form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="flex flex-col gap-2">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <div class="grid grid-cols-4 gap-4">
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick()">
+                  <span class="material-icons">
+                    cancel_presentation
+                  </span>
+                </button>
+              </div>
+              <div class="campo">
+                <button class="boton-icon bnt01" (click)="onNoClick2(this.data.datos)">
+                  <span class="material-icons">
+                    check_box
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

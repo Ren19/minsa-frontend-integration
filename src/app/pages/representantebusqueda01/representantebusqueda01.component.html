@@ -1,0 +1,135 @@
+<div class="flex flex-col gap-2">
+  <div class="m-card" style="background-color: #e7eaf6;">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-1">
+        <div class="campo">
+          <div class="grid grid-cols-2 gap-2">
+            <div class="campo">
+              <label for="">Estado:</label>
+              <select name="CboEstado" class="longitud1 diametro1 inputText01" matNativeControl [(ngModel)]="estadoRepresentante" required>
+                <option selected>Seleccionar</option>
+                <option [value]="item.eddcodigo" *ngFor="let item of cboEstado">{{item.edddescrip}}</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="">DISA:</label>
+              <input type="text" class="form-control inputText01" [disabled]="true" />
+              <button class="boton-icon">
+                <span class="material-icons">
+                  search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <div class="grid grid-cols-2 gap-2">
+            <div class="campo">
+              <label for="">Buscar por:</label>
+              <select name="CboTipoBusqueda" class="diametro1 inputText01" [(ngModel)]="tipoBusquedaRepresentante" matNativeControl>
+                <option value="1">IDENTIDAD</option>
+                <option value="2" selected>NOMBRE</option>
+                <option value="3">NRO. REGISTRO</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="">Expresi&oacute;n:</label>
+              <input name="TxtExpBuscar" type="text" class="form-control inputText01" [(ngModel)]="expresion"
+                placeholder="Expresion" maxlength="100" (keydown.enter)="buscarClick()">
+            </div>
+          </div>
+        </div>
+        <!--
+          <div class="campo">
+          <button class="boton-icon bnt01">Consultar</button>
+        </div>
+        -->    
+        <div class="campo">
+
+          <table mat-table [dataSource]="dataSource" class="table border">
+            <!-- Position Column -->
+            <ng-container matColumnDef="nrorepresentante">
+              <th mat-header-cell *matHeaderCellDef>N° Rep.</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}">
+                {{element.repnumeins}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="fechaincri">
+              <th mat-header-cell *matHeaderCellDef>Fecha Insc.</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}"> {{element.repfechreg}}
+              </td>
+            </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}"> {{element.repnombcomp}} </td>
+            </ng-container>
+
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="tipodoc">
+              <th mat-header-cell *matHeaderCellDef>Tipo Doc.Id.</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}"> {{element.tidabrevia}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="docid">
+              <th mat-header-cell *matHeaderCellDef>N° Doc. Id.</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}"> {{element.repnumedocid}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="sit">
+              <th mat-header-cell *matHeaderCellDef>Sit.</th>
+              <td mat-cell *matCellDef="let element
+                                        let even = even;" [ngClass]="{'rowStyle':even==1}"> {{element.eddabrevia}} </td>
+            </ng-container>
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="singlePayment(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        </div>
+        <div >
+          <mat-paginator [pageSizeOptions]="[7,14, 21]" showFirstLastButtons
+            aria-label="Select page of periodic elements">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col gap-2">
+  <div class="m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <div class="grid grid-cols-4 gap-4">
+            <div class="campo">
+              <button class="boton-icon bnt01" (click)="onNoClick()">
+                <span class="material-icons">
+                  cancel_presentation
+                </span>
+              </button>
+            </div>
+            <div class="campo">
+              <button class="boton-icon bnt01" (click)="onNoClick2(data.animal)">
+                <span class="material-icons">
+                  check_box
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--/form-->
