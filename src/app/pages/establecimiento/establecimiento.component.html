@@ -1,5 +1,5 @@
 <div class="grid grid-cols-6 gap-4 p-2">
-  <div class="col-start-1 col-end-5 border border-dark">
+  <div class="col-start-1 col-end-5 m-card">
     <div class="flex w-full">
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
@@ -19,7 +19,7 @@
         <div class="campo">
           <label for="">Nro Solicitud:</label>
           <input type="text" class="form-control inputText01" readonly>
-          <button class="boton-icon"><span class="material-icons"> search </span></button>
+          <button class="boton-icon"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
         </div>
@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <div class="col-end-7 col-span-2 border border-dark">
+  <div class="col-end-7 col-span-2 m-card">
     <div class="flex w-full">
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
@@ -53,3 +53,32 @@
     </div>
   </div>
 </div>
+
+<div class="grid grid-cols gap-4 p-2">
+  <div class="m-card">
+    <mat-tab-group dynamicHeight animationDuration="0ms" selectedIndex="0">
+      <mat-tab label="Datos Generales">
+        <div class="example-large-box mat-elevation-z4">
+          <app-tab-establec-actividades></app-tab-establec-actividades>
+        </div>
+      </mat-tab>
+      <mat-tab label="Actividades">
+        <div class="example-large-box mat-elevation-z4">
+          <app-tab-establec-datos-generales></app-tab-establec-datos-generales>
+      </div>
+      </mat-tab>
+      <mat-tab label="Almacenes/Plantas">
+        <div class="example-large-box mat-elevation-z4">
+          <app-tab-establec-almacenes-plantas></app-tab-establec-almacenes-plantas>
+      </div>
+      </mat-tab>
+      <mat-tab label="Otro Datos">
+        <div class="example-large-box mat-elevation-z4">
+          <app-tab-establec-otros-datos></app-tab-establec-otros-datos>
+      </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+</div>
+

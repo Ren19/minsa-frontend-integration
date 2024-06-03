@@ -1,0 +1,110 @@
+<div class="grid gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-25 p-4">
+        <div class="campo">
+          <label for="">Clase/Tipo:</label>
+          <ng-select
+            bindLabel="nombre"
+            bindValue="codigo">
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <h2 style="margin: 10px;">Dirección Fiscal</h2>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Dirección:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Nro:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+        <div class="campo">
+          <label for="">Dpto:</label>
+          <input type="text" class="form-control inputText01" readonly>
+          <button (click)="openModalDepartamento()" class="boton-icon"><span class="material-icons">search</span></button>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Int./Mz./Lote::</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+        <div class="campo">
+          <label for="">Prov:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Urbanización:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+        <div class="campo">
+          <label for="">Distrito:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-25 p-4">
+        <div class="campo">
+          <label for="">Correo Electronico:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <h2 style="margin: 10px;">Información de RENAES</h2>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Código:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Categoría:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Definición:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <h2 style="margin: 10px;">Comentario</h2>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <textarea style="height: 100%;" class="form-control inputText01"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
