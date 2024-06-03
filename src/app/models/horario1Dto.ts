@@ -1,4 +1,4 @@
-interface Horario1Dto {
+export interface Horario1Dto {
     tencodigo1: string;
     hornumeins2: string;
     hornumesec3: number;

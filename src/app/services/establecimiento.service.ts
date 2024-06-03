@@ -1,6 +1,8 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Horario1Dto } from '../models/horario1Dto';
+import { EstablecimientoDto } from '../models/establecimientoDto';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -215,4 +217,13 @@ export class EstablecimientoService {
 
     return this.httpClient.get<any>(`${this.url}/getPersonalItem`, options);
   }
+
+  getCboTipo(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getCboTipo`, httpOptions);
+  }
+
+  getCboSituacion(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getCboSituacion`, httpOptions);
+  }
+
 }

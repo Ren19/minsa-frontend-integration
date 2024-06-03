@@ -6,7 +6,13 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
- .bnt01 {
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.ng-select {
+  width: 100%;
+}
+
+.bnt01 {
   border: 1px solid dimgray;
 }
 

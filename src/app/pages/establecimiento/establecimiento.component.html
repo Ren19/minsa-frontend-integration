@@ -1,0 +1,55 @@
+<div class="grid grid-cols-6 gap-4 p-2">
+  <div class="col-start-1 col-end-5 border border-dark">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Nro Registro:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+        <div class="campo">
+          <label for="">Clase/Tipo:</label>
+          <ng-select
+            [items]="listaClaseTipo"
+            bindLabel="nombre"
+            bindValue="codigo">
+          </ng-select>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Nro Solicitud:</label>
+          <input type="text" class="form-control inputText01" readonly>
+          <button class="boton-icon"><span class="material-icons"> search </span></button>
+        </div>
+        <div class="campo">
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Empadronado:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+        <div class="campo">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-end-7 col-span-2 border border-dark">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Nro Registro:</label>
+          <input type="text" class="form-control inputText01">
+        </div>
+        <div class="campo">
+          <label for="">Situación:</label>
+          <ng-select
+            [items]="listaSituacion"
+            bindLabel="nombre"
+            bindValue="codigo">
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

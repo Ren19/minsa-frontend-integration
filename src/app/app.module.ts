@@ -50,6 +50,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {SelectionModel} from '@angular/cdk/collections';
 import { ValidacionComponent } from './pages/Validaciones/validacion.component';
+import { EstablecimientoComponent } from './pages/establecimiento/establecimiento.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -59,6 +61,7 @@ import { ValidacionComponent } from './pages/Validaciones/validacion.component';
     AppComponent,
     LoginComponent,
     ValidacionComponent,
+    EstablecimientoComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,
@@ -81,6 +84,8 @@ import { ValidacionComponent } from './pages/Validaciones/validacion.component';
     MatPaginatorModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
+    MatIconModule,
+    NgSelectModule
     //FormGroup,
     //FormBuilder
   ],

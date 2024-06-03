@@ -1,4 +1,4 @@
-interface EstablecimientoDto {
+export interface EstablecimientoDto {
     estnumeins1: string;
     estfechins2: Date;
     catcodigo3: string;

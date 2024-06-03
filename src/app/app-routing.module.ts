@@ -11,6 +11,7 @@ import { DatosgeneralesComponent } from './pages/datosgenerales/datosgenerales.c
 import { RegistroestablecimientoComponent } from './pages/registroestablecimiento/registroestablecimiento.component';
 import { DocumentoResolucionComponent } from './pages/documentoresolucion/documentoresolucion.component';
 import { FichaEvaluacionComponent } from './pages/fichaevaluacion/fichaevaluacion.component';
+import { EstablecimientoComponent } from './pages/establecimiento/establecimiento.component';
 
 const app_routes: Routes = [
   //{path: '', component: LoginComponent},
@@ -24,6 +25,7 @@ const app_routes: Routes = [
   {path: 'datosgenerales', component: DatosgeneralesComponent},
   {path: 'documentoresolucion', component: DocumentoResolucionComponent},
   {path: 'fichaevaluacion', component: FichaEvaluacionComponent},
+  {path: 'establecimiento', component: EstablecimientoComponent},
   {path: 'home', component: HomeComponent},
 ];
 
