@@ -13,8 +13,8 @@ import { DocumentoResolucionComponent } from './pages/documentoresolucion/docume
 import { FichaEvaluacionComponent } from './pages/fichaevaluacion/fichaevaluacion.component';
 
 const app_routes: Routes = [
-  {path: '', component: LoginComponent},
-  //{path: '', component: RegistroestablecimientoComponent},
+  //{path: '', component: LoginComponent},
+  {path: '', component: RegistroestablecimientoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'actividades', component: ActividadesComponent},
   {path: 'registroestable', component: RegistroestablecimientoComponent},

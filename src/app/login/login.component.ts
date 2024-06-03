@@ -1,5 +1,5 @@
-import { Component, OnInit,Inject } from '@angular/core';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
   currentProfile!: Profile;
 
   constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private route: ActivatedRoute,
+    private router: Router) {
 
-    }
+  }
 
   ngOnInit() {
 
@@ -48,30 +48,24 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-   }
+  }
 
-
-   onSubmit() {
+  onSubmit() {
     // TODO: Use EventEmitter with form value
 
     this.submitted = true;
-
     // stop here if form is invalid
     //if (this.user.invalid) {
-        //return;
+    //return;
     //}
-
     this.loading = true;
     // this.router.navigate(['/registroestable']);
     //  // this.router.navigateByUrl('/login');
 
-      this.router.navigate(['/home']);
+    this.router.navigate(['/home']);
 
   }
 
   ocultar: boolean = true;
   get f() { return this.user.controls; }
-
-
-
 }
