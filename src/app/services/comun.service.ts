@@ -153,4 +153,13 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getGrupoProducto`, httpOptions);
   }
 
+  getActividadPorClaseTipo(cParam1: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('cParam1', cParam1);
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/getActividadPorClaseTipo`, options);
+  }
+
 }

@@ -3,21 +3,30 @@
     <div class="flex w-full">
       <h2 style="margin: 10px; width: 100%;">Actividades</h2>
       <div class="campo">
-        <button class="boton-icon"><span class="material-icons" title="nuevo">add</span></button>
-        <button class="boton-icon"><span class="material-icons" title="editar">edit</span></button>
-        <button class="boton-icon"><span class="material-icons" title="eliminar">remove</span></button>
+        <button class="boton-icon" (click)="openModalActividades()" *ngIf="selecionadoClaseTipo != null && selecionadoClaseTipo != ''"><span class="material-icons" title="nuevo">add</span></button>
+        <button class="boton-icon" *ngIf="selectionRowActividades.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
+        <button class="boton-icon" (click)="onEliminarActividades()" *ngIf="selectionRowActividades.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
     </div>
     <div class="grid grid-cols gap-4 p-2">
       <table mat-table [dataSource]="dataSourceActividades" class="table border">
-        <ng-container matColumnDef="actividad">
-          <th mat-header-cell *matHeaderCellDef>Actividades</th>
-          <td mat-cell *matCellDef="let element"> {{element.DPTDESCRIP}} </td>
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="$event.stopPropagation()"
+              (change)="$event ? selectionRowActividades.toggle(element) : null">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Clasificación</th>
+          <td mat-cell *matCellDef="let element"> {{element.ACTDESCRIP}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumnsActividades"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumnsActividades;"
-        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsActividades;"></tr>
       </table>
       <mat-paginator [pageSizeOptions]="[3, 6, 9]"
                      showFirstLastButtons
@@ -65,7 +74,7 @@
       <div class="campo">
         <button class="boton-icon" (click)="openModalGrupoProducto()"><span class="material-icons" title="nuevo">add</span></button>
         <button class="boton-icon" *ngIf="selectionRowGrupoProductos.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
-        <button class="boton-icon" (click)="onEliminar()" *ngIf="selectionRowGrupoProductos.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
+        <button class="boton-icon" (click)="onEliminarGrupoProductos()" *ngIf="selectionRowGrupoProductos.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
     </div>
     <div class="grid grid-cols gap-4 p-2">

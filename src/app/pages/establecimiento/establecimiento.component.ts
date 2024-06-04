@@ -9,6 +9,8 @@ import { EstablecimientoService } from 'src/app/services/establecimiento.service
 export class EstablecimientoComponent implements OnInit {
 
   listaClaseTipo:any = [];
+  selecionarClaseTipo: any = null
+
   listaSituacion: any = []
 
   constructor(
@@ -34,5 +36,11 @@ export class EstablecimientoComponent implements OnInit {
     })
   }
 
+  onChangeClaseTipo(event: any) {
+    this.selecionarClaseTipo = null
+    if(event) {
+      this.selecionarClaseTipo = event.codigo
+    }
+  }
 
 }
