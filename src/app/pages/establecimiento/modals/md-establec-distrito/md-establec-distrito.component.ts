@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
+import { MdEstablecDepartamentoComponent } from '../md-establec-departamento/md-establec-departamento.component';
 
 @Component({
   selector: 'app-md-establec-distrito',
@@ -66,6 +67,25 @@ export class MdEstablecDistritoComponent implements OnInit {
     let copy = structuredClone(this.dataSourceCopy)
     let resultadosFiltrados = copy.filter((item) => item[campoFiltrar].includes(contenido));
     this.dataSource = resultadosFiltrados
+  }
+
+  onVerDepartamentos() {
+    this.dataSource = [];
+    this.dataSourceCopy = []
+    this.codigoDepartamento = ''
+    this.textoDepartamento = ''
+    this.codigoProvincia = ''
+    this.textoProvincia = ''
+
+    const dialogRef = this.dialog.open(MdEstablecDepartamentoComponent, {
+      width:'850px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.codigoDepartamento = result.DPTCODIGO
+      this.textoDepartamento = result.DPTDESCRIP
+    });
   }
 
 }

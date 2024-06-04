@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-2 p-2">
   <div class="header">
-    <h3>Busqueda de Entidad</h3>
+    <h3>Ubicación Geográfica</h3>
     <button class="btn_modal_header" (click)="onNoClick()">
       <span class="material-icons">close</span>
     </button>
@@ -13,7 +13,7 @@
         <div class="campo">
           <label for="">Departamento:</label>
           <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
-          <button class="boton-icon"><span class="material-icons">search</span></button>
+          <button (click)="onVerDepartamentos()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
           <label for="">Provincia:</label>
