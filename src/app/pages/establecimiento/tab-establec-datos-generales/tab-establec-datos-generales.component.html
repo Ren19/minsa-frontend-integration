@@ -1,1 +1,89 @@
-<p>tab-establec-datos-generales works!</p>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-4 m-card">
+    <div class="flex w-full">
+      <h2 style="margin: 10px; width: 100%">Información de Registro</h2>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Lugar de registro:</label>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">DIGEMID</mat-radio-button>
+            <mat-radio-button value="2">DISA</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Sector:</label>
+            <ng-select
+              [items]="listaSector"
+              bindLabel="nombre"
+              bindValue="codigo"
+              (change)="onChangeSector($event)"
+            >
+            </ng-select>
+          </div>
+          <div class="campo">
+            <label for="">Sub Sector:</label>
+            <div class="flex gap-2 w-full items-center">
+              <input type="text"  class="form-control inputText01" readonly>
+              <button *ngIf="selecionarSector != null && selecionarSector != ''" class="boton-icon"><span class="material-icons">search</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <label for="">Entidad:</label>
+          <div class="flex gap-2 w-full items-center">
+            <input type="text"   class="form-control inputText01" readonly>
+            <div class="flex gap-2">
+              <button class="boton-icon">
+                <span class="material-icons">search</span>
+              </button>
+              <button class="boton-icon">
+                <span class="material-icons">visibility</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Jurisdicción:</label>
+          <input type="text" class="form-control inputText01" readonly>
+        </div>
+        <div class="grid grid-cols-2 gap-2">
+          <div class="campo">
+            <label for="">N° Exp.Inic.Activid:</label>
+            <input type="text"  class="form-control inputText01" >
+          </div>
+          <div class="campo">
+            <label for="">Fecha Exp:</label>
+            <div class="flex gap-2 w-full items-center">
+              <input [matDatepicker]="dtFechaExp"  class="form-control inputText01">
+              <mat-datepicker #dtFechaExp></mat-datepicker>
+              <button  class="boton-icon" (click)="dtFechaExp.open()">
+                <span class="material-icons">calendar_month</span>
+              </button>
+            </div>
+          </div>
+          <div class="campo">
+            <label for="">N° R.D. Aut.:</label>
+            <input type="text"  class="form-control inputText01">
+          </div>
+          <div class="campo">
+            <label for="">Fecha Aut.:</label>
+            <div class="flex gap-2 w-full items-center">
+              <input [matDatepicker]="dtFechaAut" class="form-control inputText01">
+              <mat-datepicker #dtFechaAut></mat-datepicker>
+              <button  class="boton-icon"  (click)="dtFechaAut.open()">
+                <span class="material-icons">calendar_month</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

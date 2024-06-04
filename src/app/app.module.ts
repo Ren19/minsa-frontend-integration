@@ -106,7 +106,8 @@ import { MdEstablecProductoControladoComponent } from './pages/establecimiento/m
     MatIconModule,
     NgSelectModule,
     MatTabsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDatepickerModule
     //FormGroup,
     //FormBuilder
   ],
