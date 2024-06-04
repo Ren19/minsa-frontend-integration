@@ -32,8 +32,8 @@
         </div>
         <div class="campo">
           <label for="">Dpto:</label>
-          <input type="text" class="form-control inputText01" readonly>
-          <button (click)="openModalDepartamento()" class="boton-icon"><span class="material-icons">search</span></button>
+          <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
+          <button (click)="openModalDistrito()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
@@ -43,7 +43,7 @@
         </div>
         <div class="campo">
           <label for="">Prov:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01" readonly [value]="textoProvincia">
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
@@ -53,7 +53,7 @@
         </div>
         <div class="campo">
           <label for="">Distrito:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01" readonly [value]="textoDistrito">
         </div>
       </div>
     </div>

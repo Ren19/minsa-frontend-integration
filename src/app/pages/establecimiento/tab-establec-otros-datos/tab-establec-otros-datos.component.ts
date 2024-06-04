@@ -9,18 +9,30 @@ import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-e
 })
 export class TabEstablecOtrosDatosComponent {
 
+  codigoDepartamento: any = null
+  textoDepartamento: any = null
+  codigoProvincia: any = null
+  textoProvincia: any = null
+  codigoDistrito: any = null
+  textoDistrito: any = null
+  
   constructor(
     public dialog: MatDialog,
   ) {}
 
-  openModalDepartamento() {
+  openModalDistrito() {
     const dialogRef = this.dialog.open(MdEstablecDistritoComponent, {
       width:'850px',
       height:'550px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-
+      this.codigoDepartamento = result.DPTCODIGO;
+      this.textoDepartamento = result.DPTDESCRIP;
+      this.codigoProvincia = result.PRVCODIGO;
+      this.textoProvincia = result.PRVDESCRIP;
+      this.codigoDistrito = result.DISCODIGO;
+      this.textoDistrito = result.DISDESCRIP;
     });
   }
 
