@@ -162,4 +162,8 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getActividadPorClaseTipo`, options);
   }
 
+  getTipoProductoControlado(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getTipoProductoControlado`, httpOptions);
+  }
+
 }

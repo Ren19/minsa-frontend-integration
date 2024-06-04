@@ -5,6 +5,7 @@ import { obtenerObjetosFaltantes } from 'src/app/common/global-functions';
 import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
 import { MdEstablecActividadComponent } from '../modals/md-establec-actividad/md-establec-actividad.component';
 import { MdEstablecGrupoProductoComponent } from '../modals/md-establec-grupo-producto/md-establec-grupo-producto.component';
+import { MdEstablecProductoControladoComponent } from '../modals/md-establec-producto-controlado/md-establec-producto-controlado.component';
 
 @Component({
   selector: 'app-tab-establec-actividades',
@@ -21,6 +22,7 @@ export class TabEstablecActividadesComponent {
 
   displayedColumnsProductosControlados: string[] = ['tipoProductoControlado'];
   dataSourceProductosControlados: any = []
+  selectionRowProductosControlados = new SelectionModel<PeriodicElement>(true, []);
 
   displayedColumnsGrupoProductos: string[] = ['select', 'clasificacion', 'subClasificacion', 'grupoDeProducto', 'subGrupo'];
   dataSourceGrupoProductos: any = []
@@ -84,5 +86,29 @@ export class TabEstablecActividadesComponent {
     this.dataSourceActividades = [...newArray]
     this.selectionRowActividades = new SelectionModel<PeriodicElement>(true, []);
   }
+
+  openModalProductoControlados() {
+    const dialogRef = this.dialog.open(MdEstablecProductoControladoComponent, {
+      width:'850px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        if(this.dataSourceProductosControlados.length > 0) {
+          this.dataSourceProductosControlados = [...this.dataSourceProductosControlados, ...result]
+        }else {
+          this.dataSourceProductosControlados = result
+        }
+      }
+    });
+  }
+
+  onEliminarProductoControlados() {
+    let newArray = obtenerObjetosFaltantes(this.dataSourceProductosControlados, this.selectionRowActividades.selected)
+    this.dataSourceProductosControlados = [...newArray]
+    this.selectionRowActividades = new SelectionModel<PeriodicElement>(true, []);
+  }
+
 
 }

@@ -60,6 +60,7 @@ import { MdEstablecProvinciaComponent } from './pages/establecimiento/modals/md-
 import { MdEstablecDistritoComponent } from './pages/establecimiento/modals/md-establec-distrito/md-establec-distrito.component';
 import { MdEstablecGrupoProductoComponent } from './pages/establecimiento/modals/md-establec-grupo-producto/md-establec-grupo-producto.component';
 import { MdEstablecActividadComponent } from './pages/establecimiento/modals/md-establec-actividad/md-establec-actividad.component';
+import { MdEstablecProductoControladoComponent } from './pages/establecimiento/modals/md-establec-producto-controlado/md-establec-producto-controlado.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -79,6 +80,7 @@ import { MdEstablecActividadComponent } from './pages/establecimiento/modals/md-
     MdEstablecDistritoComponent,
     MdEstablecGrupoProductoComponent,
     MdEstablecActividadComponent,
+    MdEstablecProductoControladoComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

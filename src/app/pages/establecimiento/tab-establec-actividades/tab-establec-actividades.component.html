@@ -44,7 +44,7 @@
         </mat-radio-group>
       </div>
       <div class="campo" *ngIf="opcionSeleccionadaProductControlados != null && opcionSeleccionadaProductControlados == '1'">
-        <button class="boton-icon"><span class="material-icons" title="nuevo">add</span></button>
+        <button class="boton-icon" (click)="openModalProductoControlados()"><span class="material-icons" title="nuevo">add</span></button>
         <button class="boton-icon"><span class="material-icons" title="editar">edit</span></button>
         <button class="boton-icon"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
