@@ -1,0 +1,72 @@
+<div class="flex flex-col gap-2 p-2">
+  <div class="header">
+    <h3>Busqueda de Grupo de Producto</h3>
+    <button class="btn_modal_header" (click)="onNoClick()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+</div>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Buscar Por:</label>
+          <ng-select [items]="listOpcionesBusqueda"
+            bindLabel="nombre"
+            bindValue="codigo"
+            (change)="onChangeBuscarPor($event)"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Expresión:</label>
+          <input type="text" class="form-control inputText01" (keyup)="onExpresion($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols gap-4 p-2">
+  <table mat-table [dataSource]="dataSource" class="table border">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-checkbox (click)="$event.stopPropagation()"
+          (change)="$event ? selectionRow.toggle(element) : null">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="clasificacion">
+      <th mat-header-cell *matHeaderCellDef>Clasificación</th>
+      <td mat-cell *matCellDef="let element"> {{element.TCPDESCRIP}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subClasificacion">
+      <th mat-header-cell *matHeaderCellDef>Sub Clasificación</th>
+      <td mat-cell *matCellDef="let element"> {{element.STCPDESCRIP}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="grupoDeProducto">
+      <th mat-header-cell *matHeaderCellDef>Grupo de Producto</th>
+      <td mat-cell *matCellDef="let element"> {{element.GRPDESCRIP}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subGrupo">
+      <th mat-header-cell *matHeaderCellDef>Sub Grupo</th>
+      <td mat-cell *matCellDef="let element"> {{element.SGPDESCRIP}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+<button class="btn btn-primary" (click)="onAgregarSeleccionados()">Agregar</button>

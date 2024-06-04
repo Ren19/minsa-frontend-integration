@@ -18,7 +18,7 @@ export class ComunService {
   private controller = '/comun';
   private url = '';
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
       this.url = `${this.host}${this.controller}`
   }
 
@@ -127,25 +127,30 @@ export class ComunService {
 
   getSubSector(cParam1: string = ''): Observable<any> {
     let params = new HttpParams().set('cParam1', cParam1);
-  
+
     const options = { httpOptions, params };
-  
+
     return this.httpClient.get<any>(`${this.url}/getSubSector`, options);
   }
 
   getCargarEntidad(entcodigo: string): Observable<any> {
     let params = new HttpParams().set('entcodigo', entcodigo);
-  
+
     const options = { httpOptions, params };
-  
+
     return this.httpClient.get<any>(`${this.url}/getCargarEntidad`, options);
   }
 
   getCargarEntidadValidacionAnulacion(entcodigo: string): Observable<any> {
     let params = new HttpParams().set('entcodigo', entcodigo);
-  
+
     const options = { httpOptions, params };
-  
+
     return this.httpClient.get<any>(`${this.url}/getCargarEntidadValidacionAnulacion`, options);
-  }  
+  }
+
+  getGrupoProducto(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getGrupoProducto`, httpOptions);
+  }
+
 }

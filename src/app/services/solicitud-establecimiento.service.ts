@@ -165,10 +165,6 @@ export class SolicitudEstablecimientoService {
     return this.httpClient.get<any>(`${this.url}/getActividadPorCategoria`, options);
   }
 
-  getGrupoProducto(): Observable<any> {
-    return this.httpClient.get<any>(`${this.url}/getGrupoProducto`, httpOptions);
-  }
-
   getTipoProductoControlado(): Observable<any> {
     return this.httpClient.get<any>(`${this.url}/getTipoProductoControlado`, httpOptions);
   }
