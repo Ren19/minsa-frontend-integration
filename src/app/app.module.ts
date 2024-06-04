@@ -99,7 +99,8 @@ import { MdEstablecDistritoComponent } from './pages/establecimiento/modals/md-e
     MatCheckboxModule,
     MatIconModule,
     NgSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
     //FormGroup,
     //FormBuilder
   ],

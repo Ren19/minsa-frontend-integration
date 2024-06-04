@@ -7,4 +7,19 @@ import { Component } from '@angular/core';
 })
 export class TabEstablecActividadesComponent {
 
+  displayedColumnsActividades: string[] = ['actividad'];
+  dataSourceActividades: any = []
+
+
+  displayedColumnsProductosControlados: string[] = ['tipoProductoControlado'];
+  dataSourceProductosControlados: any = []
+
+  displayedColumnsGrupoProductos: string[] = ['clasificacion', 'subClasificacion', 'grupoDeProducto', 'subGrupo'];
+  dataSourceGrupoProductos: any = []
+
+  opcionSeleccionadaProductControlados: any = "2"
+
+  onSeleccionarProductControlados(event) {
+    this.opcionSeleccionadaProductControlados = event.value
+  }
 }
