@@ -35,12 +35,12 @@
         <div class="campo">
           <label for="">Entidad:</label>
           <div class="flex gap-2 w-full items-center">
-            <input type="text"   class="form-control inputText01" readonly>
+            <input type="text"   class="form-control inputText01" readonly [value]="textoEntidad">
             <div class="flex gap-2">
-              <button class="boton-icon">
+              <button class="boton-icon" (click)="openModalBuquedaEntidad()">
                 <span class="material-icons">search</span>
               </button>
-              <button class="boton-icon">
+              <button class="boton-icon" *ngIf="codigoEntidad != null && codigoEntidad != ''" (click)="openModalVisualizacionEntidad()">
                 <span class="material-icons">visibility</span>
               </button>
             </div>

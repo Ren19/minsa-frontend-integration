@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
+import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
 
 @Component({
@@ -15,6 +16,9 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   codigoSubSector: any = ''
   textoSubSector: string = ''
+
+  codigoEntidad: any = ''
+  textoEntidad: string = ''
 
   constructor(
     public dialog: MatDialog,
@@ -55,4 +59,22 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
     });
   }
 
+  openModalBuquedaEntidad() {
+    const dialogRef = this.dialog.open(MdEstablecBusquedaEntidadComponent, {
+      width:'990px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        this.codigoEntidad = result.ENTCODIGO
+        this.textoEntidad = result.ENTRAZONSOC
+      }
+    });
+  }
+
+  openModalVisualizacionEntidad() {
+
+  }
+  
 }
