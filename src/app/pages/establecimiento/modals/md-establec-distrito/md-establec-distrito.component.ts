@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
 import { MdEstablecDepartamentoComponent } from '../md-establec-departamento/md-establec-departamento.component';
+import { MdEstablecProvinciaComponent } from '../md-establec-provincia/md-establec-provincia.component';
 
 @Component({
   selector: 'app-md-establec-distrito',
@@ -69,7 +70,7 @@ export class MdEstablecDistritoComponent implements OnInit {
     this.dataSource = resultadosFiltrados
   }
 
-  onVerDepartamentos() {
+  openModalDepartamentos() {
     this.dataSource = [];
     this.dataSourceCopy = []
     this.codigoDepartamento = ''
@@ -85,6 +86,22 @@ export class MdEstablecDistritoComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.codigoDepartamento = result.DPTCODIGO
       this.textoDepartamento = result.DPTDESCRIP
+    });
+  }
+
+  openModalProvincias() {
+    const dialogRef = this.dialog.open(MdEstablecProvinciaComponent, {
+      data: {
+        codigoDepartamento: this.codigoDepartamento
+      },
+      width:'850px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.codigoProvincia = result.PRVCODIGO
+      this.textoProvincia = result.PRVDESCRIP
+      this.getDistritos(this.codigoDepartamento, this.codigoProvincia)
     });
   }
 

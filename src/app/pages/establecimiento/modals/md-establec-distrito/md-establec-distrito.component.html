@@ -13,12 +13,12 @@
         <div class="campo">
           <label for="">Departamento:</label>
           <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
-          <button (click)="onVerDepartamentos()" class="boton-icon"><span class="material-icons">search</span></button>
+          <button (click)="openModalDepartamentos()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
           <label for="">Provincia:</label>
           <input type="text" class="form-control inputText01" readonly [value]="textoProvincia">
-          <button class="boton-icon"><span class="material-icons">search</span></button>
+          <button class="boton-icon"><span class="material-icons" (click)="openModalProvincias()" *ngIf="codigoDepartamento != null && codigoDepartamento != ''">search</span></button>
         </div>
       </div>
     </div>
