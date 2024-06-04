@@ -27,8 +27,8 @@
           <div class="campo">
             <label for="">Sub Sector:</label>
             <div class="flex gap-2 w-full items-center">
-              <input type="text"  class="form-control inputText01" readonly>
-              <button *ngIf="selecionarSector != null && selecionarSector != ''" class="boton-icon"><span class="material-icons">search</span></button>
+              <input type="text"  class="form-control inputText01" readonly [value]="textoSubSector">
+              <button (click)="openModalSubSector()" *ngIf="selecionarSector != null && selecionarSector != ''" class="boton-icon"><span class="material-icons">search</span></button>
             </div>
           </div>
         </div>

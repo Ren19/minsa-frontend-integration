@@ -61,6 +61,7 @@ import { MdEstablecDistritoComponent } from './pages/establecimiento/modals/md-e
 import { MdEstablecGrupoProductoComponent } from './pages/establecimiento/modals/md-establec-grupo-producto/md-establec-grupo-producto.component';
 import { MdEstablecActividadComponent } from './pages/establecimiento/modals/md-establec-actividad/md-establec-actividad.component';
 import { MdEstablecProductoControladoComponent } from './pages/establecimiento/modals/md-establec-producto-controlado/md-establec-producto-controlado.component';
+import { MdEstablecSubSectorComponent } from './pages/establecimiento/modals/md-establec-sub-sector/md-establec-sub-sector.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -81,6 +82,7 @@ import { MdEstablecProductoControladoComponent } from './pages/establecimiento/m
     MdEstablecGrupoProductoComponent,
     MdEstablecActividadComponent,
     MdEstablecProductoControladoComponent,
+    MdEstablecSubSectorComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,
