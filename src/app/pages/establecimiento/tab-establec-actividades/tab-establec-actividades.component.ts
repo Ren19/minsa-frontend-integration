@@ -20,7 +20,7 @@ export class TabEstablecActividadesComponent {
   dataSourceActividades: any = []
   selectionRowActividades = new SelectionModel<PeriodicElement>(true, []);
 
-  displayedColumnsProductosControlados: string[] = ['tipoProductoControlado'];
+  displayedColumnsProductosControlados: string[] = ['select', 'descripcion'];
   dataSourceProductosControlados: any = []
   selectionRowProductosControlados = new SelectionModel<PeriodicElement>(true, []);
 
@@ -105,9 +105,9 @@ export class TabEstablecActividadesComponent {
   }
 
   onEliminarProductoControlados() {
-    let newArray = obtenerObjetosFaltantes(this.dataSourceProductosControlados, this.selectionRowActividades.selected)
+    let newArray = obtenerObjetosFaltantes(this.dataSourceProductosControlados, this.selectionRowProductosControlados.selected)
     this.dataSourceProductosControlados = [...newArray]
-    this.selectionRowActividades = new SelectionModel<PeriodicElement>(true, []);
+    this.selectionRowProductosControlados = new SelectionModel<PeriodicElement>(true, []);
   }
 
 

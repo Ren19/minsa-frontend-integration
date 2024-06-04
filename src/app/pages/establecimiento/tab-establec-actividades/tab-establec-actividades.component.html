@@ -45,20 +45,29 @@
       </div>
       <div class="campo" *ngIf="opcionSeleccionadaProductControlados != null && opcionSeleccionadaProductControlados == '1'">
         <button class="boton-icon" (click)="openModalProductoControlados()"><span class="material-icons" title="nuevo">add</span></button>
-        <button class="boton-icon"><span class="material-icons" title="editar">edit</span></button>
-        <button class="boton-icon"><span class="material-icons" title="eliminar">remove</span></button>
+        <button class="boton-icon" *ngIf="selectionRowProductosControlados.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
+        <button class="boton-icon" (click)="onEliminarProductoControlados()" *ngIf="selectionRowProductosControlados.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
     </div>
     <div class="grid grid-cols gap-4 p-2">
       <table mat-table [dataSource]="dataSourceProductosControlados" class="table border">
-        <ng-container matColumnDef="tipoProductoControlado">
-          <th mat-header-cell *matHeaderCellDef>Tipo de Prod. Controlado</th>
-          <td mat-cell *matCellDef="let element"> {{element.DPTDESCRIP}} </td>
+        <ng-container matColumnDef="select">
+          <th mat-header-cell *matHeaderCellDef>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <mat-checkbox (click)="$event.stopPropagation()"
+              (change)="$event ? selectionRowProductosControlados.toggle(element) : null">
+            </mat-checkbox>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripción</th>
+          <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumnsProductosControlados"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumnsProductosControlados;"
-        ></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsProductosControlados;"></tr>
       </table>
       <mat-paginator [pageSizeOptions]="[3, 6, 9]"
                      showFirstLastButtons
