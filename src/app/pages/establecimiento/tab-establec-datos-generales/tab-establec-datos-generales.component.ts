@@ -4,6 +4,7 @@ import { ComunService } from 'src/app/services/comun.service';
 import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
 import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
+import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -15,11 +16,21 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   listaSector:any = [];
   selecionarSector: any = null
 
+  listaTipoPersona:any = [];
+  selecionarTipoPersona: any = null
+
   codigoSubSector: any = ''
   textoSubSector: string = ''
 
   codigoEntidad: any = ''
   textoEntidad: string = ''
+
+  codigoDepartamento: any = null
+  textoDepartamento: any = null
+  codigoProvincia: any = null
+  textoProvincia: any = null
+  codigoDistrito: any = null
+  textoDistrito: any = null
 
   constructor(
     public dialog: MatDialog,
@@ -85,6 +96,31 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
 
+    });
+  }
+
+  onChangeTipoPersona(event: any) {
+    this.selecionarTipoPersona = null
+    if(event) {
+      this.selecionarTipoPersona = event.codigo
+    }
+  }
+
+  openModalDistrito() {
+    const dialogRef = this.dialog.open(MdEstablecDistritoComponent, {
+      width:'850px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        this.codigoDepartamento = result.DPTCODIGO;
+        this.textoDepartamento = result.DPTDESCRIP;
+        this.codigoProvincia = result.PRVCODIGO;
+        this.textoProvincia = result.PRVDESCRIP;
+        this.codigoDistrito = result.DISCODIGO;
+        this.textoDistrito = result.DISDESCRIP;
+      }
     });
   }
 

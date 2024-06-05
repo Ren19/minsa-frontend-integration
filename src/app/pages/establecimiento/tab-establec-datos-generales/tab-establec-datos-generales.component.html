@@ -87,3 +87,217 @@
     </div>
   </div>
 </div>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-4 m-card">
+    <div class="flex w-full">
+      <h2 style="margin: 10px; width: 100%">Datos Generales del Establecimiento</h2>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Nro. RUC:</label>
+            <input type="text"  class="form-control inputText01">
+            <button class="boton-icon"><span class="material-icons">search</span></button>
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Tipo Persona:</label>
+            <ng-select
+              [items]="listaTipoPersona"
+              bindLabel="nombre"
+              bindValue="codigo"
+              (change)="onChangeTipoPersona($event)"
+            >
+            </ng-select>
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">N° Telf(S):</label>
+            <input type="text"  class="form-control inputText01">
+            <input type="text"  class="form-control inputText01">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">N° Fax:</label>
+            <input type="text"  class="form-control inputText01">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Razón Social:</label>
+            <input type="text"  class="form-control inputText01">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">Nombre Comecial:</label>
+            <input type="text"  class="form-control inputText01">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Dirección</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Nro.:</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Int./Mz/Lote:</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Urbanización:</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Dpto.:</label>
+          <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
+          <button (click)="openModalDistrito()" class="boton-icon"><span class="material-icons">search</span></button>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Prov.:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="textoProvincia">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Distrito:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="textoDistrito">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">GR Latitud:</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">GR Long.:</label>
+          <input type="text"  class="form-control inputText01">
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
