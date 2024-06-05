@@ -226,4 +226,16 @@ export class EstablecimientoService {
     return this.httpClient.get<any>(`${this.url}/getCboSituacion`, httpOptions);
   }
 
+  getSolicitudPendientePantalla2(ctipo: any, dsacodigo: any, tipobusqueda: any, expbuscar: any): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('ctipo', ctipo);
+    params = params.set('dsacodigo', dsacodigo);
+    params = params.set('tipobusqueda', tipobusqueda);
+    params = params.set('expbuscar', expbuscar);
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/getSolicitudPendientePantalla2`, options);
+  }
+
 }

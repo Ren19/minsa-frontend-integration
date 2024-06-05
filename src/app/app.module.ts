@@ -64,6 +64,7 @@ import { MdEstablecProductoControladoComponent } from './pages/establecimiento/m
 import { MdEstablecSubSectorComponent } from './pages/establecimiento/modals/md-establec-sub-sector/md-establec-sub-sector.component';
 import { MdEstablecBusquedaEntidadComponent } from './pages/establecimiento/modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecMostrarEntidadComponent } from './pages/establecimiento/modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
+import { MdEstablecSolicitudInscripcionComponent } from './pages/establecimiento/modals/md-establec-solicitud-inscripcion/md-establec-solicitud-inscripcion.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -87,6 +88,7 @@ import { MdEstablecMostrarEntidadComponent } from './pages/establecimiento/modal
     MdEstablecSubSectorComponent,
     MdEstablecBusquedaEntidadComponent,
     MdEstablecMostrarEntidadComponent,
+    MdEstablecSolicitudInscripcionComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

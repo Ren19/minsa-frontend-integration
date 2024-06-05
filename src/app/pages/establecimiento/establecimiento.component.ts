@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { EstablecimientoService } from 'src/app/services/establecimiento.service';
+import { MdEstablecSolicitudInscripcionComponent } from './modals/md-establec-solicitud-inscripcion/md-establec-solicitud-inscripcion.component';
 
 @Component({
   selector: 'app-establecimiento',
@@ -13,7 +15,10 @@ export class EstablecimientoComponent implements OnInit {
 
   listaSituacion: any = []
 
+  codigoSolicitud: any = null
+
   constructor(
+    public dialog: MatDialog,
     private establecimientoService: EstablecimientoService
   ) {}
 
@@ -41,6 +46,19 @@ export class EstablecimientoComponent implements OnInit {
     if(event) {
       this.selecionarClaseTipo = event.codigo
     }
+  }
+
+  openModalSolicitudInscripcion() {
+    const dialogRef = this.dialog.open(MdEstablecSolicitudInscripcionComponent, {
+      width:'100%',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        this.codigoSolicitud = result.SOLCODIGO
+      }
+    });
   }
 
 }

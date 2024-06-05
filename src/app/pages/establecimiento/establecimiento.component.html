@@ -20,8 +20,8 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Nro Solicitud:</label>
-          <input type="text" class="form-control inputText01" readonly>
-          <button class="boton-icon"><span class="material-icons">search</span></button>
+          <input type="text" class="form-control inputText01" readonly [value]="codigoSolicitud">
+          <button class="boton-icon" (click)="openModalSolicitudInscripcion()"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
         </div>
