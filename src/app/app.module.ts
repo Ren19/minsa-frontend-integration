@@ -65,6 +65,7 @@ import { MdEstablecSubSectorComponent } from './pages/establecimiento/modals/md-
 import { MdEstablecBusquedaEntidadComponent } from './pages/establecimiento/modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecMostrarEntidadComponent } from './pages/establecimiento/modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 import { MdEstablecSolicitudInscripcionComponent } from './pages/establecimiento/modals/md-establec-solicitud-inscripcion/md-establec-solicitud-inscripcion.component';
+import { MdEstablecBusquedaDisaComponent } from './pages/establecimiento/modals/md-establec-busqueda-disa/md-establec-busqueda-disa.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -89,6 +90,7 @@ import { MdEstablecSolicitudInscripcionComponent } from './pages/establecimiento
     MdEstablecBusquedaEntidadComponent,
     MdEstablecMostrarEntidadComponent,
     MdEstablecSolicitudInscripcionComponent,
+    MdEstablecBusquedaDisaComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

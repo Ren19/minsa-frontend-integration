@@ -3,6 +3,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PeriodicElement } from 'src/app/pages/representantebusqueda01/representantebusqueda01.component';
 import { EstablecimientoService } from 'src/app/services/establecimiento.service';
+import { MdEstablecBusquedaDisaComponent } from '../md-establec-busqueda-disa/md-establec-busqueda-disa.component';
 
 @Component({
   selector: 'app-md-establec-solicitud-inscripcion',
@@ -103,5 +104,19 @@ export class MdEstablecSolicitudInscripcionComponent implements OnInit {
     }
   }
 
+
+  openModalBuscarDisa() {
+    const dialogRef = this.dialog.open(MdEstablecBusquedaDisaComponent, {
+      width:'990px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        this.codigoDisa = result.DSACODIGO
+        this.textoDisa = result.DSADESCRIP
+      }
+    });
+  }
 
 }

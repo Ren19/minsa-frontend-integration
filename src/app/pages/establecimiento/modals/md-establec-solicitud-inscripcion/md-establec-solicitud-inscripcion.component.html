@@ -13,7 +13,7 @@
         <div class="campo">
           <label for="">DISA:</label>
           <input type="text"  class="form-control inputText01" readonly [value]="textoDisa">
-          <button class="boton-icon"><span class="material-icons">search</span></button>
+          <button (click)="openModalBuscarDisa()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
