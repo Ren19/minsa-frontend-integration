@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
 import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
+import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -74,7 +75,17 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   }
 
   openModalVisualizacionEntidad() {
+    const dialogRef = this.dialog.open(MdEstablecMostrarEntidadComponent, {
+      data: {
+        codigoEntidad: this.codigoEntidad
+      },
+      width:'990px',
+      height:'550px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+
+    });
   }
-  
+
 }

@@ -40,7 +40,7 @@
               <button class="boton-icon" (click)="openModalBuquedaEntidad()">
                 <span class="material-icons">search</span>
               </button>
-              <button class="boton-icon" *ngIf="codigoEntidad != null && codigoEntidad != ''" (click)="openModalVisualizacionEntidad()">
+              <button class="boton-icon" title="ver entidad" *ngIf="codigoEntidad != null && codigoEntidad != ''" (click)="openModalVisualizacionEntidad()">
                 <span class="material-icons">visibility</span>
               </button>
             </div>

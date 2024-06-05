@@ -63,6 +63,7 @@ import { MdEstablecActividadComponent } from './pages/establecimiento/modals/md-
 import { MdEstablecProductoControladoComponent } from './pages/establecimiento/modals/md-establec-producto-controlado/md-establec-producto-controlado.component';
 import { MdEstablecSubSectorComponent } from './pages/establecimiento/modals/md-establec-sub-sector/md-establec-sub-sector.component';
 import { MdEstablecBusquedaEntidadComponent } from './pages/establecimiento/modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
+import { MdEstablecMostrarEntidadComponent } from './pages/establecimiento/modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -85,6 +86,7 @@ import { MdEstablecBusquedaEntidadComponent } from './pages/establecimiento/moda
     MdEstablecProductoControladoComponent,
     MdEstablecSubSectorComponent,
     MdEstablecBusquedaEntidadComponent,
+    MdEstablecMostrarEntidadComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

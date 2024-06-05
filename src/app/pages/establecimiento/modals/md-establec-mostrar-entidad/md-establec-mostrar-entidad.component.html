@@ -1,0 +1,189 @@
+<div class="flex flex-col gap-2 p-2">
+  <div class="header">
+    <h3>Ver de Entidad</h3>
+    <button class="btn_modal_header" (click)="onNoClick()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+  <div class="grid grid-cols gap-4 p-2">
+    <div class="col-start-1 col-end-4 m-card">
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Nro Registro:</label>
+            <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTCODIGO">
+          </div>
+          <div class="flex gap-3 w-full">
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Lugar de Registro:</label>
+            <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].DSADESCRIP">
+          </div>
+          <div class="flex gap-3 w-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols gap-4 p-2">
+    <div class="col-start-1 col-end-4 m-card">
+      <div class="flex w-full">
+        <h2 style="margin: 10px; width: 100%">Sector de Entidad</h2>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Sector:</label>
+            <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].SETDESCRIPENT">
+          </div>
+          <div class="flex gap-3 w-full">
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="campo">
+            <label for="">Sub Sector:</label>
+            <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].SSTDESCRIPENT">
+          </div>
+          <div class="flex gap-3 w-full">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid grid-cols gap-4 p-2">
+    <div class="col-start-1 col-end-4 m-card">
+      <div class="flex w-full">
+        <h2 style="margin: 10px; width: 100%">Datos Generales del la Entidad</h2>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Razón Social:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTRAZONSOC">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Tipo Doc. Id:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].TIDABREVIA">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">N° Doc. Id:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTNUMEDOCID">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Dirección:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTDIRECCION">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Urbanización::</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTURBANIZ">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Nro:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTDIRENUME">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Int./Mz/Lote:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTINTERIOR">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Departamento:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].DPTDESCRIPDIR">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Provincia:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].PRVDESCRIPDIR">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Distrito:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].DISDESCRIPDIR">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Teléfono:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTNUMETLF">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Fax:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTFAX">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+              <label for="">Email:</label>
+              <input type="text"  class="form-control inputText01" readonly [value]="datoEntidad[0].ENTEMAIL">
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full p-2">
+          <div class="flex gap-3 w-full">
+            <div class="campo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
