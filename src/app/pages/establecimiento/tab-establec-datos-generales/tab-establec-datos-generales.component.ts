@@ -39,11 +39,18 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   ngOnInit() {
     this.getComboSector()
+    this.getComboTipoPersona()
   }
 
   getComboSector() {
     this.comunService.getComboSector().subscribe(response => {
         this.listaSector = response.data
+    })
+  }
+
+  getComboTipoPersona() {
+    this.comunService.getComboTipoPersona().subscribe(response => {
+        this.listaTipoPersona = response.data
     })
   }
 
