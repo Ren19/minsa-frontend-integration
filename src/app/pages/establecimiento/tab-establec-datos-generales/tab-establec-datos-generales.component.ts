@@ -7,6 +7,7 @@ import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar
 import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
 import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
 import { SelectionModel } from '@angular/cdk/collections';
+import { MdEstablecRepresentanteLegalComponent } from '../modals/md-establec-representante-legal/md-establec-representante-legal.component';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -145,6 +146,19 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
         this.textoProvincia = result.PRVDESCRIP;
         this.codigoDistrito = result.DISCODIGO;
         this.textoDistrito = result.DISDESCRIP;
+      }
+    });
+  }
+
+  openModalRepresentanteLegal() {
+    const dialogRef = this.dialog.open(MdEstablecRepresentanteLegalComponent, {
+      width:'990px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+       
       }
     });
   }

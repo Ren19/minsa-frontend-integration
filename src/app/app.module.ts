@@ -66,6 +66,9 @@ import { MdEstablecBusquedaEntidadComponent } from './pages/establecimiento/moda
 import { MdEstablecMostrarEntidadComponent } from './pages/establecimiento/modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 import { MdEstablecSolicitudInscripcionComponent } from './pages/establecimiento/modals/md-establec-solicitud-inscripcion/md-establec-solicitud-inscripcion.component';
 import { MdEstablecBusquedaDisaComponent } from './pages/establecimiento/modals/md-establec-busqueda-disa/md-establec-busqueda-disa.component';
+import { MdEstablecRepresentanteLegalComponent } from './pages/establecimiento/modals/md-establec-representante-legal/md-establec-representante-legal.component';
+import { MdEstablecBusquedaCargoComponent } from './pages/establecimiento/modals/md-establec-busqueda-cargo/md-establec-busqueda-cargo.component';
+import { MdEstablecBusquedaRepresentanteLegalComponent } from './pages/establecimiento/modals/md-establec-busqueda-representante-legal/md-establec-busqueda-representante-legal.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -91,6 +94,9 @@ import { MdEstablecBusquedaDisaComponent } from './pages/establecimiento/modals/
     MdEstablecMostrarEntidadComponent,
     MdEstablecSolicitudInscripcionComponent,
     MdEstablecBusquedaDisaComponent,
+    MdEstablecRepresentanteLegalComponent,
+    MdEstablecBusquedaCargoComponent,
+    MdEstablecBusquedaRepresentanteLegalComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

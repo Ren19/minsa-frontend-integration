@@ -40,4 +40,19 @@ export class RepresentanteLegalService {
   getComboTipoDocumentoReferencia(): Observable<any> {
     return this.httpClient.get<any>(`${this.url}/getComboTipoDocumentoReferencia`, httpOptions);
   }
+
+  getComboEstado(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getComboEstado`, httpOptions);
+  }
+
+  getBuscarRepresentante1(dsacodigo: any, eddcodigo: any): Observable<any> {
+    const params = new HttpParams()
+    .set('dsacodigo', dsacodigo)
+    .set('eddcodigo', eddcodigo)
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/getBuscarRepresentante1`, options);
+  }
+
 }
