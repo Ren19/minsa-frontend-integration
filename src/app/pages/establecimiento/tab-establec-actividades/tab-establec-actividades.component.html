@@ -1,11 +1,11 @@
 <div class="grid grid-cols-6 p-2">
   <div class="col-start-1 col-end-4 m-card">
-    <div class="flex w-full">
-      <h2 style="margin: 10px; width: 100%;">Actividades</h2>
-      <div class="campo">
-        <button class="boton-icon" (click)="openModalActividades()" *ngIf="selecionadoClaseTipo != null && selecionadoClaseTipo != ''"><span class="material-icons" title="nuevo">add</span></button>
-        <button class="boton-icon" *ngIf="selectionRowActividades.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
-        <button class="boton-icon" (click)="onEliminarActividades()" *ngIf="selectionRowActividades.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
+    <div class="flex justify-between items-center pr-2 pb-2">
+      <h2>Actividades</h2>
+      <div class="flex gap-4">
+        <button class="boton-icon bnt01" (click)="openModalActividades()" *ngIf="selecionadoClaseTipo != null && selecionadoClaseTipo != ''"><span class="material-icons" title="nuevo">add</span></button>
+        <button class="boton-icon bnt01" *ngIf="selectionRowActividades.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
+        <button class="boton-icon bnt01" (click)="onEliminarActividades()" *ngIf="selectionRowActividades.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
     </div>
     <div class="grid grid-cols gap-4 p-2">
@@ -78,12 +78,12 @@
 </div>
 <div class="grid grid-cols gap-4 p-2">
   <div class="col-start-1 col-end-4 m-card">
-    <div class="flex w-full">
-      <h2 style="margin: 10px; width: 100%">Grupo de Productos</h2>
-      <div class="campo">
-        <button class="boton-icon" (click)="openModalGrupoProducto()"><span class="material-icons" title="nuevo">add</span></button>
-        <button class="boton-icon" *ngIf="selectionRowGrupoProductos.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
-        <button class="boton-icon" (click)="onEliminarGrupoProductos()" *ngIf="selectionRowGrupoProductos.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
+    <div class="flex justify-between items-center pr-2 pb-2">
+      <h2>Grupo de Productos</h2>
+      <div class="flex gap-4">
+        <button class="boton-icon bnt01" (click)="openModalGrupoProducto()"><span class="material-icons" title="nuevo">add</span></button>
+        <button class="boton-icon bnt01" *ngIf="selectionRowGrupoProductos.selected.length == 1"><span class="material-icons" title="editar">edit</span></button>
+        <button class="boton-icon bnt01" (click)="onEliminarGrupoProductos()" *ngIf="selectionRowGrupoProductos.selected.length > 0"><span class="material-icons" title="eliminar">remove</span></button>
       </div>
     </div>
     <div class="grid grid-cols gap-4 p-2">

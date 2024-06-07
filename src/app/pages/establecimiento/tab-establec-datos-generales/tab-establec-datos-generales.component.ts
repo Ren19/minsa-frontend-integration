@@ -5,6 +5,8 @@ import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busque
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
 import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
+import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
+import { SelectionModel } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -31,6 +33,22 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   textoProvincia: any = null
   codigoDistrito: any = null
   textoDistrito: any = null
+
+  displayedColumnsRepresentanteLegal: string[] = ['apellidos_nombres', 'cargo', 'sit'];
+  dataSourceRepresentanteLegal: any = []
+  selectionRowRepresentanteLegal = new SelectionModel<PeriodicElement>(true, []);
+
+  displayedColumnsPersonal: string[] = ['apellidos_nombres', 'cargo', 'sit'];
+  dataSourcePersonal: any = []
+  selectionPersonal = new SelectionModel<PeriodicElement>(true, []);
+
+  displayedColumnsHorario: string[] = ['dia', 'horario'];
+  dataSourceHorario: any = []
+  selectionHorario = new SelectionModel<PeriodicElement>(true, []);
+
+  displayedColumnsHorarioDetalle: string[] = ['horario_detalle'];
+  dataSourceHorarioDetalle: any = []
+  selectionHorarioDetalle = new SelectionModel<PeriodicElement>(true, []);
 
   constructor(
     public dialog: MatDialog,
