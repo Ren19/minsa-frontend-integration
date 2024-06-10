@@ -9,7 +9,7 @@ import { PeriodicElement } from 'src/app/pages/representantebusqueda01/represent
 })
 export class TabInfFormaFarComponent {
 
-  displayedForma: string[] = ['tipoProducto'];
+  displayedForma: string[] = ['forma'];
   dataSourceForma: any = []
   dataSourceCopy: any = []
   selectionForma = new SelectionModel<PeriodicElement>(true, []);

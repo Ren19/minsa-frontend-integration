@@ -1,4 +1,6 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component } from '@angular/core';
+import { PeriodicElement } from 'src/app/pages/representantebusqueda01/representantebusqueda01.component';
 
 @Component({
   selector: 'app-tab-inf-cosmetica',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./tab-inf-cosmetica.component.css']
 })
 export class TabInfCosmeticaComponent {
+
+  displayedFormaCosmetica: string[] = ['formaCosmetica'];
+  dataSourceFormaCosmetica: any = []
+  dataSourceCopy: any = []
+  selectionFormaCosmetica = new SelectionModel<PeriodicElement>(true, []);
 
 }
