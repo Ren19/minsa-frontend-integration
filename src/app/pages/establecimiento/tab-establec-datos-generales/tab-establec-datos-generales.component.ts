@@ -22,6 +22,22 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   listaTipoPersona:any = [];
   selecionarTipoPersona: any = null
 
+  listaDias:any = [
+    { codigo: "1", nombre: "LUNES" },
+    { codigo: "2", nombre: "MARTES" },
+    { codigo: "3", nombre: "MIERCOLES" },
+    { codigo: "4", nombre: "JUEVES" },
+    { codigo: "5", nombre: "VIERNES" },
+    { codigo: "6", nombre: "SABADO" },
+    { codigo: "7", nombre: "DOMINGO" },
+
+  ];
+  selecionarDiasIni: any = null
+  selecionarDiasFin: any = null
+  selecionarFechaIni: any = null
+  selecionarFechaFin: any = null
+  listadoHorarioDetalle: any = []
+
   codigoSubSector: any = ''
   textoSubSector: string = ''
 
@@ -50,6 +66,8 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   displayedColumnsHorarioDetalle: string[] = ['horario_detalle'];
   dataSourceHorarioDetalle: any = []
   selectionHorarioDetalle = new SelectionModel<PeriodicElement>(true, []);
+
+  mostrarCamposRegistro: boolean = false
 
   constructor(
     public dialog: MatDialog,
@@ -158,9 +176,53 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
-       
+
       }
     });
+  }
+
+  onChangeDiaIni(event: any) {
+    this.selecionarDiasIni = null
+    if(event) {
+      this.selecionarDiasIni = event
+    }
+  }
+
+  onChangeDiaFin(event: any) {
+    this.selecionarDiasFin = null
+    if(event) {
+      this.selecionarDiasFin = event
+    }
+  }
+
+  onMostarCampos() {
+    this.selecionarDiasIni = null
+    this.selecionarDiasFin = null
+    this.mostrarCamposRegistro = true
+  }
+
+  onOcultarCampos() {
+    this.selecionarDiasIni = null
+    this.selecionarDiasFin = null
+    this.mostrarCamposRegistro = false
+  }
+
+  onGuardarHorario() {
+    let valueDiaIni = parseInt(this.selecionarDiasIni.codigo)
+    let valueDiaFin = parseInt(this.selecionarDiasFin.codigo)
+    if(valueDiaIni > valueDiaFin) {
+      alert('Dia Inicial debe ser menor o igual a Dia Final')
+      return;
+    }
+    for(let i = valueDiaIni; i <= valueDiaFin; i++) {
+      let valor = this.listaDias.filter((item) => parseInt(item.codigo) == i)[0]
+    }
+
+
+    console.log(this.selecionarDiasIni)
+    console.log(this.selecionarDiasFin)
+    console.log(this.selecionarFechaIni)
+    console.log(this.selecionarFechaFin)
   }
 
 }

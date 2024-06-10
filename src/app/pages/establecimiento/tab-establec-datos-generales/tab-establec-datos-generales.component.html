@@ -387,11 +387,42 @@
         <div class="flex justify-between items-center pr-2 pb-2">
           <h2>Horario de Funcionamiento</h2>
           <div class="flex gap-3">
-            <button class="boton-icon bnt01"><span class="material-icons">add</span></button>
+            <button (click)="onMostarCampos()" class="boton-icon bnt01"><span class="material-icons">add</span></button>
             <button class="boton-icon bnt01"><span class="material-icons">edit</span></button>
             <button class="boton-icon bnt01"><span class="material-icons">delete</span></button>
-            <button class="boton-icon bnt01"><span class="material-icons">save</span></button>
-            <button class="boton-icon bnt01"><span class="material-icons">cancel</span></button>
+            <button (click)="onGuardarHorario()" *ngIf="selecionarDiasIni != null && selecionarDiasFin != null && selecionarFechaIni != null && selecionarFechaFin != null" class="boton-icon bnt01"><span class="material-icons">save</span></button>
+            <button (click)="onOcultarCampos()" class="boton-icon bnt01"><span class="material-icons">cancel</span></button>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center pr-2 pb-2" *ngIf="mostrarCamposRegistro">
+          <div class="campo">
+            <label for="">Dia Ini:</label>
+            <ng-select
+              [items]="listaDias"
+              bindLabel="nombre"
+              bindValue="codigo"
+              (change)="onChangeDiaIni($event)"
+            >
+            </ng-select>
+          </div>
+          <div class="campo">
+            <label for="">Fin:</label>
+            <ng-select
+              [items]="listaDias"
+              bindLabel="nombre"
+              bindValue="codigo"
+              (change)="onChangeDiaFin($event)"
+            >
+            </ng-select>
+          </div>
+          <div class="campo">
+            <label for="">Hr Ini:</label>
+            <input type="time" [(ngModel)]="selecionarFechaIni">
+          </div>
+          <div class="campo">
+            <label for="">Fin:</label>
+            <input type="time" [(ngModel)]="selecionarFechaFin">
           </div>
         </div>
 
