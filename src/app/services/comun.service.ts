@@ -166,4 +166,12 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getTipoProductoControlado`, httpOptions);
   }
 
+  getComboTipoDocumento(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getComboTipoDocumento`, httpOptions);
+  }
+
+  getMotivo(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getMotivo`, httpOptions);
+  }
+
 }

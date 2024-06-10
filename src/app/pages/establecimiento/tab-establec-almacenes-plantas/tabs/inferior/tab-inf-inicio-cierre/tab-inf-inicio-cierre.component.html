@@ -1,1 +1,77 @@
-<p>tab-inf-inicio-cierre works!</p>
+<div class="flex flex-col gap-1">
+  <div class="flex w-full">
+    <div class="m-card">
+      <div class="grid grid-cols-1 gap-1">
+        <div class="campo">
+          <div class="m-card">
+            <div class="flex justify-between items-center">
+              <h2>Inicio</h2>
+            </div>
+            <div class="flex flex-col  p-1">
+              <div class="campo">
+                <label for="">Tipo Doc.:</label>
+                <ng-select
+                  [items]="listaTipoDocInicio"
+                  bindLabel="nombre"
+                  bindValue="codigo"
+                  (change)="onChangeTipoDocInicio($event)"
+                >
+                </ng-select>
+              </div>
+              <div class="campo">
+                <label for="">Nro. Doc.:</label>
+                <input type="text" class="form-control inputText01">
+              </div>
+              <div class="campo">
+                <label for="">Inicio Activ.:</label>
+                <input [matDatepicker]="dtFechaIncio"  class="form-control inputText01">
+                <mat-datepicker #dtFechaIncio></mat-datepicker>
+                <button  class="boton-icon" (click)="dtFechaIncio.open()">
+                  <span class="material-icons">calendar_month</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="campo">
+          <div class="m-card">
+            <div class="flex justify-between items-center pr-2 pb-2">
+              <h2>Fin</h2>
+            </div>
+            <div class="flex flex-col  p-1">
+              <div class="campo">
+                <label for="">Tipo Doc.:</label>
+                <ng-select
+                  [items]="listaTipoDocFin"
+                  bindLabel="nombre"
+                  bindValue="codigo"
+                  (change)="onChangeTipoDocFin($event)"
+                >
+                </ng-select>
+              </div>
+              <div class="campo">
+                <label for="">Nro. Doc.:</label>
+                <input type="text" class="form-control inputText01">
+              </div>
+              <div class="campo">
+                <label for="">Fin Activ.:</label>
+                <input [matDatepicker]="dtFechaFin"  class="form-control inputText01">
+                <mat-datepicker #dtFechaFin></mat-datepicker>
+                <button  class="boton-icon" (click)="dtFechaFin.open()">
+                  <span class="material-icons">calendar_month</span>
+                </button>
+              </div>
+              <div class="campo">
+                <label for="">Motivo:</label>
+                <input type="text" class="form-control inputText01" readonly [value]="textoMotivo">
+                <button class="boton-icon" (click)="openModalBuscarMotivo()" >
+                  <span class="material-icons">search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

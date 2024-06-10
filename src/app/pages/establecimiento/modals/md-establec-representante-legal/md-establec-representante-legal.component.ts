@@ -3,6 +3,7 @@ import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dial
 import { RepresentanteLegalService } from 'src/app/services/representante-legal.service';
 import { MdEstablecBusquedaCargoComponent } from '../md-establec-busqueda-cargo/md-establec-busqueda-cargo.component';
 import { MdEstablecBusquedaRepresentanteLegalComponent } from '../md-establec-busqueda-representante-legal/md-establec-busqueda-representante-legal.component';
+import { ComunService } from 'src/app/services/comun.service';
 
 @Component({
   selector: 'app-md-establec-representante-legal',
@@ -29,7 +30,8 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
-    public representanteLegalService: RepresentanteLegalService
+    public representanteLegalService: RepresentanteLegalService,
+    public comunService: ComunService,
   ) { }
 
   ngOnInit() {
@@ -65,7 +67,7 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
 
   getComboTipoDocumentoReferencia() {
-    this.representanteLegalService.getComboTipoDocumentoReferencia().subscribe(response => {
+    this.comunService.getComboTipoDocumento().subscribe(response => {
         this.listaInicioActTipoDocumento = response.data
         this.listaFinActTipoDocumento = response.data
     })

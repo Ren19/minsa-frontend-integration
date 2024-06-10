@@ -81,6 +81,7 @@ import { TabInfCosmeticaComponent } from './pages/establecimiento/tab-establec-a
 import { TabInfTpPrdSanComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-tp-prd-san/tab-inf-tp-prd-san.component';
 import { TabInfActividadComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-actividad/tab-inf-actividad.component';
 import { TabInfObservacionesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-observaciones/tab-inf-observaciones.component';
+import { MdBusquedaMotivoComponent } from './pages/establecimiento/modals/md-busqueda-motivo/md-busqueda-motivo.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -121,6 +122,7 @@ import { TabInfObservacionesComponent } from './pages/establecimiento/tab-establ
     TabInfTpPrdSanComponent,
     TabInfActividadComponent,
     TabInfObservacionesComponent,
+    MdBusquedaMotivoComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

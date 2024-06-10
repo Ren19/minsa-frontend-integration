@@ -37,10 +37,7 @@ export class RepresentanteLegalService {
     return this.httpClient.get<any>(`${this.url}/getCargo`, options);
   }
 
-  getComboTipoDocumentoReferencia(): Observable<any> {
-    return this.httpClient.get<any>(`${this.url}/getComboTipoDocumentoReferencia`, httpOptions);
-  }
-
+  
   getComboEstado(): Observable<any> {
     return this.httpClient.get<any>(`${this.url}/getComboEstado`, httpOptions);
   }
