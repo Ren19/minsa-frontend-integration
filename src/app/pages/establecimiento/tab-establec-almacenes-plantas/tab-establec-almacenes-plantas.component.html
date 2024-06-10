@@ -1,1 +1,127 @@
-<p>tab-establec-almacenes-plantas works!</p>
+<div class="flex flex-col gap-1">
+  <div class="flex w-full">
+    <div class="m-card">
+      <div class="grid grid-cols-1 gap-1">
+        <div class="campo">
+          <div class="m-card">
+            <div class="flex justify-between items-center pr-2 pb-2">
+              <h2>Almacenes y/o Plantas</h2>
+            </div>
+            <table mat-table [dataSource]="dataSourceAlmacenesPlantas" class="table border">
+              <ng-container matColumnDef="nro">
+                <th mat-header-cell *matHeaderCellDef>N°</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="tipo">
+                <th mat-header-cell *matHeaderCellDef>Tipo</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="arrendador">
+                <th mat-header-cell *matHeaderCellDef>Arrendador</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedAlmacenesPlantas"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedAlmacenesPlantas;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                           showFirstLastButtons
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+        </div>
+        <div class="campo">
+          <div class="m-card">
+            <div class="flex justify-between items-center pr-2 pb-2">
+              <h2>Áreas</h2>
+            </div>
+            <table mat-table [dataSource]="dataSourceAreas" class="table border">
+              <ng-container matColumnDef="nro">
+                <th mat-header-cell *matHeaderCellDef>N°</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="clasificacion">
+                <th mat-header-cell *matHeaderCellDef>Clasificación</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="subClasificacion">
+                <th mat-header-cell *matHeaderCellDef>Sub. Clasificación</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="grupo">
+                <th mat-header-cell *matHeaderCellDef>Grupo</th>
+                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedAreas"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedAreas;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                           showFirstLastButtons
+                           aria-label="Select page of periodic elements">
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-card">
+      <div class="campo">
+        <div class="m-card">
+          <div class="flex justify-between items-center pr-2 pb-2">
+            <div class="flex gap-3">
+              <button class="boton-icon bnt01"><span class="material-icons">add</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">edit</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">delete</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">save</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">cancel</span></button>
+            </div>
+            <div class="campo">
+              <label for="">Situación:</label>
+              <ng-select
+                [items]="listaSituacionAlmacenesPlantas"
+                bindLabel="nombre"
+                bindValue="codigo"
+                (change)="onChangeSituacionAlmacenesPlantas($event)"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="campo">
+        <div class="m-card">
+          <div class="flex justify-between items-center pr-2 pb-2">
+            <div class="flex gap-3">
+              <button class="boton-icon bnt01"><span class="material-icons">add</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">edit</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">delete</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">save</span></button>
+              <button class="boton-icon bnt01"><span class="material-icons">cancel</span></button>
+            </div>
+            <div class="campo">
+              <label for="">Situación:</label>
+              <ng-select
+                [items]="listaSituacionAreas"
+                bindLabel="nombre"
+                bindValue="codigo"
+                (change)="onChangeSituacionAreas($event)"
+              >
+              </ng-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
