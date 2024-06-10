@@ -21,7 +21,7 @@ export class TabEstablecAlmacenesPlantasComponent implements OnInit {
   dataSourceAlmacenesPlantas: any = []
   selectionAlmacenesPlantas = new SelectionModel<PeriodicElement>(true, []);
 
-  displayedAreas: string[] = ['nro', 'clasificacion', 'subClasificacion', 'grupo'];
+  displayedAreas: string[] = ['nro', 'clasificacion', 'subClasificacion', 'grupo', 'subGrupo'];
   dataSourceAreas: any = []
   selectionAreas = new SelectionModel<PeriodicElement>(true, []);
 

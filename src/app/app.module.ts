@@ -69,6 +69,18 @@ import { MdEstablecBusquedaDisaComponent } from './pages/establecimiento/modals/
 import { MdEstablecRepresentanteLegalComponent } from './pages/establecimiento/modals/md-establec-representante-legal/md-establec-representante-legal.component';
 import { MdEstablecBusquedaCargoComponent } from './pages/establecimiento/modals/md-establec-busqueda-cargo/md-establec-busqueda-cargo.component';
 import { MdEstablecBusquedaRepresentanteLegalComponent } from './pages/establecimiento/modals/md-establec-busqueda-representante-legal/md-establec-busqueda-representante-legal.component';
+import { TabSupDatosGeneralesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/superior/tab-sup-datos-generales/tab-sup-datos-generales.component';
+import { TabSupDatosTempAlmComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/superior/tab-sup-datos-temp-alm/tab-sup-datos-temp-alm.component';
+import { TabSupDatosInicioCierreComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/superior/tab-sup-datos-inicio-cierre/tab-sup-datos-inicio-cierre.component';
+import { TabSupDatosPersonalComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/superior/tab-sup-datos-personal/tab-sup-datos-personal.component';
+import { TabSupDatosObservacionesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/superior/tab-sup-datos-observaciones/tab-sup-datos-observaciones.component';
+import { TabInfDatosGeneralesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-datos-generales/tab-inf-datos-generales.component';
+import { TabInfInicioCierreComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-inicio-cierre/tab-inf-inicio-cierre.component';
+import { TabInfFormaFarComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-forma-far/tab-inf-forma-far.component';
+import { TabInfCosmeticaComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-cosmetica/tab-inf-cosmetica.component';
+import { TabInfTpPrdSanComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-tp-prd-san/tab-inf-tp-prd-san.component';
+import { TabInfActividadComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-actividad/tab-inf-actividad.component';
+import { TabInfObservacionesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-observaciones/tab-inf-observaciones.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -97,6 +109,18 @@ import { MdEstablecBusquedaRepresentanteLegalComponent } from './pages/estableci
     MdEstablecRepresentanteLegalComponent,
     MdEstablecBusquedaCargoComponent,
     MdEstablecBusquedaRepresentanteLegalComponent,
+    TabSupDatosGeneralesComponent,
+    TabSupDatosTempAlmComponent,
+    TabSupDatosInicioCierreComponent,
+    TabSupDatosPersonalComponent,
+    TabSupDatosObservacionesComponent,
+    TabInfDatosGeneralesComponent,
+    TabInfInicioCierreComponent,
+    TabInfFormaFarComponent,
+    TabInfCosmeticaComponent,
+    TabInfTpPrdSanComponent,
+    TabInfActividadComponent,
+    TabInfObservacionesComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,
