@@ -1,1 +1,99 @@
-<p>tab-inf-datos-generales works!</p>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-4 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <label for="">N° :</label>
+            <input type="text" class="form-control inputText01" readonly>
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+            <textarea matInput name="questionText" cols="35" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="flex gap-3 w-full">
+          <div class="campo">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Clasificación:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Sub Clasificación:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Grupo:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Sub Grupo:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Tipo Producto:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Area/Nivel Rsgo:</label>
+          <input type="text"  class="form-control inputText01" readonly [value]="">
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Forma Obtención:</label>
+          <ng-select
+            bindLabel="nombre"
+            bindValue="codigo"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="flex flex-col gap-2 w-full p-2">
+        <div class="campo">
+          <label for="">Form Solicitud:</label>
+          <ng-select
+            bindLabel="nombre"
+            bindValue="codigo"
+          >
+          </ng-select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
