@@ -6,8 +6,10 @@
           <div class="campo">
             <label for="">Cond. Uso:</label>
             <ng-select
+              [items]="listaCondUso"
               bindLabel="nombre"
               bindValue="codigo"
+              (change)="onChangeCondUso($event)"
             >
             </ng-select>
           </div>
@@ -47,8 +49,10 @@
           <div class="campo">
             <label for="">Tipo:</label>
             <ng-select
+              [items]="listaTipo"
               bindLabel="nombre"
               bindValue="codigo"
+              (change)="onChangeTipo($event)"
             >
             </ng-select>
           </div>
@@ -63,8 +67,10 @@
           <div class="campo">
             <label for="">Sec.:</label>
             <ng-select
+              [items]="listaSec"
               bindLabel="nombre"
               bindValue="codigo"
+              (change)="onChangeSec($event)"
             >
             </ng-select>
           </div>

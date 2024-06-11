@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MdEstablecDistritoComponent } from 'src/app/pages/establecimiento/modals/md-establec-distrito/md-establec-distrito.component';
 import { ComunService } from 'src/app/services/comun.service';
@@ -8,7 +8,26 @@ import { ComunService } from 'src/app/services/comun.service';
   templateUrl: './tab-sup-datos-generales.component.html',
   styleUrls: ['./tab-sup-datos-generales.component.css']
 })
-export class TabSupDatosGeneralesComponent {
+export class TabSupDatosGeneralesComponent implements OnInit {
+
+  listaCondUso:any = [];
+  selecionarCondUso: any = null
+
+  listaTipo:any = [];
+  selecionarTipo: any = null
+
+  listaSec: any = [
+    { codigo:'01', nombre:'01'},
+    { codigo:'02', nombre:'02'},
+    { codigo:'03', nombre:'03'},
+    { codigo:'04', nombre:'04'},
+    { codigo:'05', nombre:'05'},
+    { codigo:'06', nombre:'06'},
+    { codigo:'07', nombre:'07'},
+    { codigo:'08', nombre:'08'},
+    { codigo:'09', nombre:'09'},
+  ];
+  selecionarSec: any = null
 
   codigoDepartamento: any = null
   textoDepartamento: any = null
@@ -22,6 +41,11 @@ export class TabSupDatosGeneralesComponent {
     public dialog: MatDialog,
     public comunService: ComunService
   ) { }
+
+  ngOnInit() {
+    this.getAlAlCondUso()
+    this.getAlAlTipo()
+  }
 
   openModalDistrito() {
     const dialogRef = this.dialog.open(MdEstablecDistritoComponent, {
@@ -40,6 +64,39 @@ export class TabSupDatosGeneralesComponent {
         this.textoDepProDep = `${result.DPTDESCRIP} / ${result.PRVDESCRIP} / ${result.DISDESCRIP}`;
       }
     });
+  }
+
+  getAlAlCondUso() {
+    this.comunService.getAlAlCondUso().subscribe(response => {
+        this.listaCondUso = response.data
+    })
+  }
+
+  onChangeCondUso(event: any) {
+    this.selecionarCondUso = null
+    if(event) {
+      this.selecionarCondUso = event.codigo
+    }
+  }
+
+  getAlAlTipo() {
+    this.comunService.getAlAlTipo().subscribe(response => {
+        this.listaTipo = response.data
+    })
+  }
+
+  onChangeTipo(event: any) {
+    this.selecionarTipo = null
+    if(event) {
+      this.selecionarTipo = event.codigo
+    }
+  }
+
+  onChangeSec(event: any) {
+    this.selecionarSec = null
+    if(event) {
+      this.selecionarSec = event.codigo
+    }
   }
 
 }

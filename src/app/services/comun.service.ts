@@ -174,4 +174,12 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getMotivo`, httpOptions);
   }
 
+  getAlAlCondUso(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getAlAlCondUso`, httpOptions);
+  }
+
+  getAlAlTipo(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getAlAlTipo`, httpOptions);
+  }
+
 }
