@@ -1,13 +1,14 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
-import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
-import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
-import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
-import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
 import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
-import { SelectionModel } from '@angular/cdk/collections';
+import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
+import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
+import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 import { MdEstablecRepresentanteLegalComponent } from '../modals/md-establec-representante-legal/md-establec-representante-legal.component';
+import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -34,8 +35,8 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   ];
   selecionarDiasIni: any = null
   selecionarDiasFin: any = null
-  selecionarFechaIni: any = null
-  selecionarFechaFin: any = null
+  selecionarHoraIni: any = null
+  selecionarHoraFin: any = null
   listadoHorarioDetalle: any = []
 
   codigoSubSector: any = ''
@@ -69,8 +70,11 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   mostrarCamposRegistro: boolean = false
 
+  mapHorarioCompleto = new Map<string, Array<string>>();
+
   constructor(
     public dialog: MatDialog,
+    private formBuilder: FormBuilder,
     public comunService: ComunService
   ) { }
 
@@ -198,31 +202,62 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   onMostarCampos() {
     this.selecionarDiasIni = null
     this.selecionarDiasFin = null
+    this.selecionarHoraIni = null
+    this.selecionarHoraFin = null
     this.mostrarCamposRegistro = true
   }
 
   onOcultarCampos() {
     this.selecionarDiasIni = null
     this.selecionarDiasFin = null
+    this.selecionarHoraIni = null
+    this.selecionarHoraFin = null
     this.mostrarCamposRegistro = false
   }
 
   onGuardarHorario() {
+    this.dataSourceHorario = []
     let valueDiaIni = parseInt(this.selecionarDiasIni.codigo)
     let valueDiaFin = parseInt(this.selecionarDiasFin.codigo)
     if(valueDiaIni > valueDiaFin) {
       alert('Dia Inicial debe ser menor o igual a Dia Final')
       return;
     }
+
     for(let i = valueDiaIni; i <= valueDiaFin; i++) {
       let valor = this.listaDias.filter((item) => parseInt(item.codigo) == i)[0]
+
+      if(this.mapHorarioCompleto.has(valor.nombre)) {
+        let currentValue: any = this.mapHorarioCompleto.get(valor.nombre);
+        currentValue.push(`${this.selecionarHoraIni}-${this.selecionarHoraFin}`);
+        this.mapHorarioCompleto.set(valor.nombre, currentValue);
+      } else {
+        let newArray = [`${this.selecionarHoraIni}-${this.selecionarHoraFin}`];
+        this.mapHorarioCompleto.set(valor.nombre, newArray);
+      }
     }
 
+    for (let [key, value] of this.mapHorarioCompleto.entries()) {
+      this.dataSourceHorario.push({dia: key, horario: value[value.length - 1]})
+    }
 
-    console.log(this.selecionarDiasIni)
-    console.log(this.selecionarDiasFin)
-    console.log(this.selecionarFechaIni)
-    console.log(this.selecionarFechaFin)
+    this.selecionarDiasIni = null
+    this.selecionarDiasFin = null
+    this.selecionarHoraIni = null
+    this.selecionarHoraFin = null
+
+  }
+
+  selectRowHorario(row: any, i: any) {
+    this.dataSourceHorarioDetalle = []
+    let horariosDetalle: any = this.mapHorarioCompleto.get(row.dia)
+    horariosDetalle.forEach(det => {
+      this.dataSourceHorarioDetalle.push({ detalle: det})
+    });
+  }
+
+  selectRowDetalleHorario(row: any, i: any) {
+
   }
 
 }
