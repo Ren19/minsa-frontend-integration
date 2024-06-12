@@ -32,7 +32,7 @@
         </div>
         <div class="campo">
           <label for="">Dpto:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoDepartamento">
           <button (click)="openModalDistrito()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
       </div>
@@ -43,7 +43,7 @@
         </div>
         <div class="campo">
           <label for="">Prov:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textoProvincia">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoProvincia">
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
@@ -53,7 +53,7 @@
         </div>
         <div class="campo">
           <label for="">Distrito:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textoDistrito">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoDistrito">
         </div>
       </div>
     </div>
@@ -78,19 +78,19 @@
       <div class="flex flex-col gap-1 w-full p-4">
         <div class="campo">
           <label for="">Código:</label>
-          <input type="text" class="form-control inputText01">
+          <input type="text" class="form-control inputText01" maxlength="8" (keyup)="onBuscarRenaes($event)">
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
         <div class="campo">
           <label for="">Categoría:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="categoriaRenaes">
         </div>
       </div>
       <div class="flex flex-col gap-1 w-full p-4">
         <div class="campo">
           <label for="">Definición:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="definicionRenaes">
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@
     <div class="flex w-full">
       <div class="flex flex-col gap-1 w-full p-4">
         <div class="campo">
-          <textarea style="height: 100%;" class="form-control inputText01"></textarea>
+          <textarea matInput name="questionText" cols="35" rows="10"></textarea>
         </div>
       </div>
     </div>

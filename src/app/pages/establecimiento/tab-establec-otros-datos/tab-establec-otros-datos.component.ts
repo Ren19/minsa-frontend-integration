@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
+import { ComunService } from 'src/app/services/comun.service';
 
 @Component({
   selector: 'app-tab-establec-otros-datos',
@@ -15,9 +16,14 @@ export class TabEstablecOtrosDatosComponent {
   textoProvincia: any = null
   codigoDistrito: any = null
   textoDistrito: any = null
-  
+
+  listaRenaes: any = []
+  categoriaRenaes: any = ""
+  definicionRenaes: any = ""
+
   constructor(
     public dialog: MatDialog,
+    public comunService: ComunService
   ) {}
 
   openModalDistrito() {
@@ -34,6 +40,24 @@ export class TabEstablecOtrosDatosComponent {
       this.codigoDistrito = result.DISCODIGO;
       this.textoDistrito = result.DISDESCRIP;
     });
+  }
+
+  onBuscarRenaes(event) {
+    this.categoriaRenaes = "";
+    this.categoriaRenaes = "";
+    let contenido = event.target.value
+    if(contenido.length === parseInt(event.target.getAttribute('maxlength'))) {
+      this.comunService.getBuscarRenaes1(contenido).subscribe((response: any) => {
+        if(response.codigo === "11") {
+          alert(response.mensaje)
+          event.target.value = ""
+        }else if(response.codigo === "00") {
+          this.listaRenaes = response.data
+          this.categoriaRenaes = response.data[0].RECCATEGORIA;
+          this.categoriaRenaes = response.data[0].RECDEFINICION;
+        }
+      });
+    }
   }
 
 }

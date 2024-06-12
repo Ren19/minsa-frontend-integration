@@ -4,7 +4,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Nro Registro:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly>
         </div>
         <div class="campo">
           <label for="">Clase/Tipo:</label>
@@ -20,7 +20,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Nro Solicitud:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="codigoSolicitud">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="codigoSolicitud">
           <button class="boton-icon" (click)="openModalSolicitudInscripcion()"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
@@ -29,7 +29,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Empadronado:</label>
-          <input type="text" class="form-control inputText01">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly>
         </div>
         <div class="campo">
         </div>
@@ -40,7 +40,7 @@
     <div class="flex w-full">
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
-          <label for="">Nro Registro:</label>
+          <label for="">Modalidad:</label>
           <input type="text" class="form-control inputText01">
         </div>
         <div class="campo">

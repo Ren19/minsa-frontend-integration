@@ -27,7 +27,7 @@
           <div class="campo">
             <label for="">Sub Sector:</label>
             <div class="flex gap-2 w-full items-center">
-              <input type="text"  class="form-control inputText01" readonly [value]="textoSubSector">
+              <input type="text"  class="form-control inputText01 inputDisabled" readonly [value]="textoSubSector">
               <button (click)="openModalSubSector()" *ngIf="selecionarSector != null && selecionarSector != ''" class="boton-icon"><span class="material-icons">search</span></button>
             </div>
           </div>
@@ -35,7 +35,7 @@
         <div class="campo">
           <label for="">Entidad:</label>
           <div class="flex gap-2 w-full items-center">
-            <input type="text"   class="form-control inputText01" readonly [value]="textoEntidad">
+            <input type="text"   class="form-control inputText01 inputDisabled" readonly [value]="textoEntidad">
             <div class="flex gap-2">
               <button class="boton-icon" (click)="openModalBuquedaEntidad()">
                 <span class="material-icons">search</span>
@@ -51,7 +51,7 @@
       <div class="flex flex-col gap-2 w-full p-2">
         <div class="campo">
           <label for="">Jurisdicción:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly>
         </div>
         <div class="grid grid-cols-2 gap-2">
           <div class="campo">
@@ -228,7 +228,7 @@
       <div class="flex flex-col gap-2 w-full p-2">
         <div class="campo">
           <label for="">Dpto.:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textoDepartamento">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoDepartamento">
           <button (click)="openModalDistrito()" class="boton-icon"><span class="material-icons">search</span></button>
         </div>
         <div class="flex gap-3 w-full">
@@ -243,7 +243,7 @@
       <div class="flex flex-col gap-2 w-full p-2">
         <div class="campo">
           <label for="">Prov.:</label>
-          <input type="text"  class="form-control inputText01" readonly [value]="textoProvincia">
+          <input type="text"  class="form-control inputText01 inputDisabled" readonly [value]="textoProvincia">
         </div>
         <div class="flex gap-3 w-full">
           <div class="campo">
@@ -259,7 +259,7 @@
       <div class="flex flex-col gap-2 w-full p-2">
         <div class="campo">
           <label for="">Distrito:</label>
-          <input type="text"  class="form-control inputText01" readonly [value]="textoDistrito">
+          <input type="text"  class="form-control inputText01 inputDisabled" readonly [value]="textoDistrito">
         </div>
         <div class="flex gap-3 w-full">
           <div class="campo">

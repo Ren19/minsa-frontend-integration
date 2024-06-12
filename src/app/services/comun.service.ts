@@ -190,4 +190,14 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getAlAlFormatoSolicitud`, httpOptions);
   }
 
+  getBuscarRenaes1(rencodigo: string): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('rencodigo', rencodigo);
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/getBuscarRenaes1`, options);
+  }
+
+
 }

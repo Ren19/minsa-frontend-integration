@@ -68,3 +68,22 @@ font-size: 12px;
     font-family: 'Roboto';
     font-size: 12px;
      }
+
+.inputDisabled {
+  background-color: #e0e0e0; /* Color de fondo gris */
+  color: #a0a0a0; /* Color del texto más claro */
+  cursor: not-allowed; /* Cursor indicando que está deshabilitado */
+  border: 1px solid #ccc; /* Borde gris */
+}
+
+.inputDisabled::placeholder {
+  color: #c0c0c0; /* Color del placeholder más claro */
+}
+
+.inputDisabled:focus,
+.inputDisabled:active {
+    background-color: #e0e0e0; /* Mantener el mismo color de fondo */
+    color: #a0a0a0; /* Mantener el mismo color del texto */
+    border: 1px solid #ccc; /* Mantener el mismo borde */
+    outline: none; /* Quitar el contorno de enfoque */
+}
