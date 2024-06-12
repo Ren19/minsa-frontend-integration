@@ -12,7 +12,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Cod, Representante:</label>
-          <input type="text" class="form-control inputText01" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly>
         </div>
       </div>
       <div class="flex flex-col gap-4 w-full p-4">
@@ -32,13 +32,13 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Apellidos y Nombres:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textoNombrRepresentanteLegal">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
           <button (click)="openModalBuscarRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
           <!--<button class="boton-icon bnt01"><span class="material-icons">visibility</span></button>-->
         </div>
         <div class="campo">
           <label for="">Cargo:</label>
-          <input type="text" class="form-control inputText01" readonly [value]="textocargo">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textocargo">
           <button (click)="openModalBuscarCargo()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
         </div>
       </div>
