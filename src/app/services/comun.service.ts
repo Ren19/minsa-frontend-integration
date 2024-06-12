@@ -182,4 +182,12 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getAlAlTipo`, httpOptions);
   }
 
+  getAlAlFormaObtencion(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getAlAlFormaObtencion`, httpOptions);
+  }
+
+  getAlAlFormatoSolicitud(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getAlAlFormatoSolicitud`, httpOptions);
+  }
+
 }

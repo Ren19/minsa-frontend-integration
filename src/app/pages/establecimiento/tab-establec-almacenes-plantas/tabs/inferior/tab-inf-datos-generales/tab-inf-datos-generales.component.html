@@ -78,8 +78,10 @@
         <div class="campo">
           <label for="">Forma Obtención:</label>
           <ng-select
+            [items]="listaFormaObtencion"
             bindLabel="nombre"
             bindValue="codigo"
+            (change)="onChangeFormaObtencion($event)"
           >
           </ng-select>
         </div>
@@ -88,8 +90,10 @@
         <div class="campo">
           <label for="">Form Solicitud:</label>
           <ng-select
+            [items]="listaFormSolicitud"
             bindLabel="nombre"
             bindValue="codigo"
+            (change)="onChangeFormSolicitud($event)"
           >
           </ng-select>
         </div>
