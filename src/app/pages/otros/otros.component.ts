@@ -1,10 +1,8 @@
-import { Component, Input, OnInit, ViewChild, Inject} from '@angular/core';
-import {PostService} from '../../services/post.service';
 import { CommonModule } from '@angular/common';
-import { GlobalConstants } from '../../common/global-constants';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 

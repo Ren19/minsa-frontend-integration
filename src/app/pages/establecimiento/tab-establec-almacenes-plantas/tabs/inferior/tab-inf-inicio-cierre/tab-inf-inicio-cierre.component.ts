@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 import { MdBusquedaMotivoComponent } from 'src/app/pages/establecimiento/modals/md-busqueda-motivo/md-busqueda-motivo.component';
 import { ComunService } from 'src/app/services/comun.service';
 
@@ -9,6 +10,9 @@ import { ComunService } from 'src/app/services/comun.service';
   styleUrls: ['./tab-inf-inicio-cierre.component.css']
 })
 export class TabInfInicioCierreComponent implements OnInit {
+
+  opcionesBoton = OPCIONES_BOTONES
+  @Input() opcionBoton: any;
 
   listaTipoDocInicio:any = [];
   selecionarTipoDocInicio: any = null

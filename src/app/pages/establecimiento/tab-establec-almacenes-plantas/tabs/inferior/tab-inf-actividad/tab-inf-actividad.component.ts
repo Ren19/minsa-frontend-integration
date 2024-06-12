@@ -1,6 +1,7 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 import { obtenerObjetosFaltantes } from 'src/app/common/global-functions';
 import { MdEstablecActividadComponent } from 'src/app/pages/establecimiento/modals/md-establec-actividad/md-establec-actividad.component';
 import { PeriodicElement } from 'src/app/pages/representantebusqueda01/representantebusqueda01.component';
@@ -11,6 +12,9 @@ import { PeriodicElement } from 'src/app/pages/representantebusqueda01/represent
   styleUrls: ['./tab-inf-actividad.component.css']
 })
 export class TabInfActividadComponent {
+
+  opcionesBoton = OPCIONES_BOTONES
+  @Input() opcionBoton: any;
 
   displayedActividad: string[] = ['select', 'actividad'];
   dataSourceActividad: any = []

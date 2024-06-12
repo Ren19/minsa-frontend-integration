@@ -85,18 +85,22 @@
         <div class="m-card">
           <div class="flex justify-between items-center pr-2 pb-2">
             <div class="flex gap-3">
-              <button class="boton-icon bnt01" title="nuevo"><span class="material-icons">add</span></button>
+              <button *ngIf="opcionBotonAlmPlan != opcionesBoton.NUEVO" (click)="onAccionNuevoAlmPlan()" class="boton-icon bnt01" title="nuevo"><span class="material-icons">add</span></button>
               <button class="boton-icon bnt01" title="editar"><span class="material-icons">edit</span></button>
               <button class="boton-icon bnt01" title="eliminar"><span class="material-icons">delete</span></button>
-              <button class="boton-icon bnt01" title="guardar"><span class="material-icons">save</span></button>
-              <button class="boton-icon bnt01" title="cancelar"><span class="material-icons">cancel</span></button>
+              <button *ngIf="opcionBotonAlmPlan === opcionesBoton.NUEVO || opcionBotonAlmPlan === opcionesBoton.EDITAR" class="boton-icon bnt01" title="guardar"><span class="material-icons">save</span></button>
+              <button *ngIf="opcionBotonAlmPlan === opcionesBoton.NUEVO || opcionBotonAlmPlan === opcionesBoton.EDITAR"
+              (click)="onAccionCancelarAlmPlan()"
+              class="boton-icon bnt01" title="cancelar"><span class="material-icons">cancel</span></button>
             </div>
-            <div class="campo">
+            <div class="campo" >
               <label for="">Situación:</label>
               <ng-select
+                [class]="opcionBotonAlmPlan === opcionesBoton.NUEVO || opcionBotonAlmPlan === opcionesBoton.EDITAR ? '':'divDisabled'"
                 [items]="listaSituacionAlmacenesPlantas"
                 bindLabel="nombre"
                 bindValue="codigo"
+                [disabled]="opcionBotonAlmPlan === opcionesBoton.NUEVO"
                 (change)="onChangeSituacionAlmacenesPlantas($event)"
               >
               </ng-select>
@@ -108,27 +112,27 @@
               <mat-tab-group dynamicHeight animationDuration="0ms" selectedIndex="0">
                 <mat-tab label="Datos Generales">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-sup-datos-generales></app-tab-sup-datos-generales>
+                    <app-tab-sup-datos-generales [opcionBoton]="opcionBotonAlmPlan"></app-tab-sup-datos-generales>
                   </div>
                 </mat-tab>
                 <mat-tab label="Temperatura de Almacenamiento">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-sup-datos-temp-alm></app-tab-sup-datos-temp-alm>
+                    <app-tab-sup-datos-temp-alm [opcionBoton]="opcionBotonAlmPlan"></app-tab-sup-datos-temp-alm>
                   </div>
                 </mat-tab>
                 <mat-tab label="Inicio/Cierre">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-sup-datos-inicio-cierre></app-tab-sup-datos-inicio-cierre>
+                    <app-tab-sup-datos-inicio-cierre [opcionBoton]="opcionBotonAlmPlan"></app-tab-sup-datos-inicio-cierre>
                   </div>
                 </mat-tab>
                 <mat-tab label="Personal">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-sup-datos-personal ></app-tab-sup-datos-personal>
+                    <app-tab-sup-datos-personal [opcionBoton]="opcionBotonAlmPlan"></app-tab-sup-datos-personal>
                   </div>
                 </mat-tab>
                 <mat-tab label="Observaciones">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-sup-datos-observaciones></app-tab-sup-datos-observaciones>
+                    <app-tab-sup-datos-observaciones [opcionBoton]="opcionBotonAlmPlan"></app-tab-sup-datos-observaciones>
                   </div>
                 </mat-tab>
               </mat-tab-group>
@@ -141,15 +145,18 @@
         <div class="m-card">
           <div class="flex justify-between items-center pr-2 pb-2">
             <div class="flex gap-3">
-              <button class="boton-icon bnt01" title="nuevo"><span class="material-icons">add</span></button>
+              <button *ngIf="opcionBotonArea != opcionesBoton.NUEVO" (click)="onAccionNuevoArea()" class="boton-icon bnt01" title="nuevo"><span class="material-icons">add</span></button>
               <button class="boton-icon bnt01" title="editar"><span class="material-icons">edit</span></button>
               <button class="boton-icon bnt01" title="eliminar"><span class="material-icons">delete</span></button>
-              <button class="boton-icon bnt01" title="guardar"><span class="material-icons">save</span></button>
-              <button class="boton-icon bnt01" title="cancelar"><span class="material-icons">cancel</span></button>
+              <button *ngIf="opcionBotonArea === opcionesBoton.NUEVO || opcionBotonArea === opcionesBoton.EDITAR" class="boton-icon bnt01" title="guardar"><span class="material-icons">save</span></button>
+              <button *ngIf="opcionBotonArea === opcionesBoton.NUEVO || opcionBotonArea === opcionesBoton.EDITAR"
+              (click)="onAccionCancelarArea()"
+              class="boton-icon bnt01" title="cancelar"><span class="material-icons">cancel</span></button>
             </div>
             <div class="campo">
               <label for="">Situación:</label>
               <ng-select
+                [class]="opcionBotonArea === opcionesBoton.NUEVO || opcionBotonAlmPlan === opcionesBoton.EDITAR ? '':'divDisabled'"
                 [items]="listaSituacionAreas"
                 bindLabel="nombre"
                 bindValue="codigo"
@@ -164,38 +171,38 @@
               <mat-tab-group dynamicHeight animationDuration="0ms" selectedIndex="0">
                 <mat-tab label="Datos Generales">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-datos-generales></app-tab-inf-datos-generales>
+                    <app-tab-inf-datos-generales [opcionBoton]="opcionBotonArea"></app-tab-inf-datos-generales>
                   </div>
                 </mat-tab>
                 <mat-tab label="Inicio/Cierre">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-inicio-cierre></app-tab-inf-inicio-cierre>
+                    <app-tab-inf-inicio-cierre [opcionBoton]="opcionBotonArea"></app-tab-inf-inicio-cierre>
                   </div>
                 </mat-tab>
                 <mat-tab label="Forma Farm.">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-forma-far></app-tab-inf-forma-far>
+                    <app-tab-inf-forma-far [opcionBoton]="opcionBotonArea"></app-tab-inf-forma-far>
                   </div>
                 </mat-tab>
 
                 <mat-tab label="F. Cosmetica">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-cosmetica></app-tab-inf-cosmetica>
+                    <app-tab-inf-cosmetica [opcionBoton]="opcionBotonArea"></app-tab-inf-cosmetica>
                   </div>
                 </mat-tab>
                 <mat-tab label="Tp. Prd. San.">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-tp-prd-san></app-tab-inf-tp-prd-san>
+                    <app-tab-inf-tp-prd-san [opcionBoton]="opcionBotonArea"></app-tab-inf-tp-prd-san>
                   </div>
                 </mat-tab>
                 <mat-tab label="Actividad">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-actividad></app-tab-inf-actividad>
+                    <app-tab-inf-actividad [opcionBoton]="opcionBotonArea"></app-tab-inf-actividad>
                   </div>
                 </mat-tab>
                 <mat-tab label="Observaciones">
                   <div class="example-large-box mat-elevation-z4">
-                    <app-tab-inf-observaciones></app-tab-inf-observaciones>
+                    <app-tab-inf-observaciones [opcionBoton]="opcionBotonArea"></app-tab-inf-observaciones>
                   </div>
                 </mat-tab>
               </mat-tab-group>

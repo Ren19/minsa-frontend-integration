@@ -87,3 +87,11 @@ font-size: 12px;
     border: 1px solid #ccc; /* Mantener el mismo borde */
     outline: none; /* Quitar el contorno de enfoque */
 }
+
+
+.divDisabled {
+  background-color: #f0f0f0; /* Color de fondo para inputs deshabilitados */
+  color: #a0a0a0; /* Color de texto para inputs deshabilitados */
+  pointer-events: none; /* Deshabilita la interacción */
+  border: 1px solid #ccc; /* Borde gris para inputs deshabilitados */
+}

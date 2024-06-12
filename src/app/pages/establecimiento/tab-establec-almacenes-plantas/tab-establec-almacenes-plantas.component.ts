@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
 import { SelectionModel } from '@angular/cdk/collections';
-import { EstablecimientoService } from 'src/app/services/establecimiento.service';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
+import { EstablecimientoService } from 'src/app/services/establecimiento.service';
+import { PeriodicElement } from '../../representantebusqueda01/representantebusqueda01.component';
 
 @Component({
   selector: 'app-tab-establec-almacenes-plantas',
@@ -10,6 +11,10 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./tab-establec-almacenes-plantas.component.css']
 })
 export class TabEstablecAlmacenesPlantasComponent implements OnInit {
+
+  opcionesBoton = OPCIONES_BOTONES
+  opcionBotonAlmPlan: any = null
+  opcionBotonArea: any = null
 
   listaSituacionAlmacenesPlantas:any = [];
   selecionarSituacionAlmacenesPlantas: any = null
@@ -54,6 +59,22 @@ export class TabEstablecAlmacenesPlantasComponent implements OnInit {
         this.listaSituacionAlmacenesPlantas = response.data
         this.listaSituacionAreas = response.data
     })
+  }
+
+  onAccionNuevoAlmPlan() {
+    this.opcionBotonAlmPlan = this.opcionesBoton.NUEVO
+  }
+
+  onAccionCancelarAlmPlan() {
+    this.opcionBotonAlmPlan = this.opcionesBoton.CANCELAR
+  }
+
+  onAccionNuevoArea() {
+    this.opcionBotonArea = this.opcionesBoton.NUEVO
+  }
+
+  onAccionCancelarArea() {
+    this.opcionBotonArea = this.opcionesBoton.CANCELAR
   }
 
 }

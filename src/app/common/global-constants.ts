@@ -1,8 +1,12 @@
-export class GlobalConstants {
+export const appURL: string = "https://itsolutionstuff.com/";
+export const appTitle: string = "This is example of ItSolutionStuff.com";
+export const appLogo: string = "assets/images/logo.png";
+export const appEmail: string = "example@gmail.com";
 
-  public static appURL: string = "https://itsolutionstuff.com/";
-  public static appTitle: string = "This is example of ItSolutionStuff.com";
-  public static appLogo: string = "assets/images/logo.png";
-  public static appEmail: string = "example@gmail.com";
-
+export const OPCIONES_BOTONES = {
+  NUEVO:  "Nuevo",
+  EDITAR: "Editar",
+  ELIMINAR: "Eliminar",
+  GUARDAR:  "Guardar",
+  CANCELAR: "Cancelar"
 }

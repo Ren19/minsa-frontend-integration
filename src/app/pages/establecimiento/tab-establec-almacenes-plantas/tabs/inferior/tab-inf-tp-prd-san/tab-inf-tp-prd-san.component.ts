@@ -1,5 +1,6 @@
 import { SelectionModel } from '@angular/cdk/collections';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 import { PeriodicElement } from 'src/app/pages/representantebusqueda01/representantebusqueda01.component';
 
 @Component({
@@ -8,6 +9,9 @@ import { PeriodicElement } from 'src/app/pages/representantebusqueda01/represent
   styleUrls: ['./tab-inf-tp-prd-san.component.css']
 })
 export class TabInfTpPrdSanComponent {
+
+  opcionesBoton = OPCIONES_BOTONES
+  @Input() opcionBoton: any;
 
   displayedTipoProducto: string[] = ['tipoProducto'];
   dataSourceTipoProducto: any = []

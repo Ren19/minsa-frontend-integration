@@ -1,5 +1,5 @@
 
-<div class="m-card">
+<div class="m-card" [class]="opcionBoton === opcionesBoton.NUEVO || opcionBoton === opcionesBoton.EDITAR ? '':'divDisabled'">
   <mat-checkbox class="example-margin">Temperatura Ambiente</mat-checkbox>
   <br>
   <mat-checkbox class="example-margin">Temperatura Controlada</mat-checkbox>

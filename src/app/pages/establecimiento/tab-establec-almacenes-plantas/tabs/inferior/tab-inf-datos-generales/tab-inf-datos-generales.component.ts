@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 import { ComunService } from 'src/app/services/comun.service';
 
 @Component({
@@ -8,6 +9,9 @@ import { ComunService } from 'src/app/services/comun.service';
   styleUrls: ['./tab-inf-datos-generales.component.css']
 })
 export class TabInfDatosGeneralesComponent implements OnInit {
+
+  opcionesBoton = OPCIONES_BOTONES
+  @Input() opcionBoton: any;
 
   listaFormaObtencion:any = [];
   selecionarFormaObtencion: any = null
