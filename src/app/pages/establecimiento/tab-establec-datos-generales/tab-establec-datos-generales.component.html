@@ -312,30 +312,30 @@
               <h2>Representante legal</h2>
               <div class="flex gap-4">
                 <button class="boton-icon bnt01" (click)="openModalRepresentanteLegal()"><span class="material-icons">add</span></button>
-                <button class="boton-icon bnt01"><span class="material-icons">edit</span></button>
-                <button class="boton-icon bnt01"><span class="material-icons">delete</span></button>
+                <button *ngIf="selectionRowRepresentanteLegal" (click)="openModalRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">edit</span></button>
+                <button *ngIf="selectionRowRepresentanteLegal" class="boton-icon bnt01"><span class="material-icons">delete</span></button>
               </div>
             </div>
 
             <table mat-table [dataSource]="dataSourceRepresentanteLegal" class="table border">
 
-              <ng-container matColumnDef="apellidos_nombres">
+              <ng-container matColumnDef="nombreCompleto">
                 <th mat-header-cell *matHeaderCellDef>Apellidos y Nombres</th>
-                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </td>
               </ng-container>
 
               <ng-container matColumnDef="cargo">
                 <th mat-header-cell *matHeaderCellDef>Cargo</th>
-                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.cargo}} </td>
               </ng-container>
 
               <ng-container matColumnDef="sit">
                 <th mat-header-cell *matHeaderCellDef>Sit.</th>
-                <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.situacion}} </td>
               </ng-container>
 
               <tr mat-header-row *matHeaderRowDef="displayedColumnsRepresentanteLegal"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumnsRepresentanteLegal;"></tr>
+              <tr mat-row (click)="selectRowRepresentanteLegal(row, i)" *matRowDef="let row;index as i; columns: displayedColumnsRepresentanteLegal;"></tr>
             </table>
             <mat-paginator [pageSizeOptions]="[3, 6, 9]"
                            showFirstLastButtons
@@ -355,7 +355,7 @@
             </div>
 
             <table mat-table [dataSource]="dataSourcePersonal" class="table border">
-              <ng-container matColumnDef="apellidos_nombres">
+              <ng-container matColumnDef="nombreCompleto">
                 <th mat-header-cell *matHeaderCellDef>Apellidos y Nombres</th>
                 <td mat-cell *matCellDef="let element"> {{element.TPCDESCRIP}} </td>
               </ng-container>

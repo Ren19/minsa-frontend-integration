@@ -52,13 +52,15 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   codigoDistrito: any = null
   textoDistrito: any = null
 
-  displayedColumnsRepresentanteLegal: string[] = ['apellidos_nombres', 'cargo', 'sit'];
-  dataSourceRepresentanteLegal: any = []
-  selectionRowRepresentanteLegal = new SelectionModel<PeriodicElement>(true, []);
+  displayedColumnsRepresentanteLegal: string[] = ['nombreCompleto', 'cargo', 'sit'];
+  dataSourceRepresentanteLegal: any[] = []
+  selectionRowRepresentanteLegal: boolean = false
+  mapRepresentanteLegal = new Map<string, any>();
+  representanteLegal: any = null
 
-  displayedColumnsPersonal: string[] = ['apellidos_nombres', 'cargo', 'sit'];
+  displayedColumnsPersonal: string[] = ['nombreCompleto', 'cargo', 'sit'];
   dataSourcePersonal: any = []
-  selectionPersonal = new SelectionModel<PeriodicElement>(true, []);
+  selectionPersonal: boolean = false
 
   displayedColumnsHorario: string[] = ['dia', 'horario'];
   dataSourceHorario: any = []
@@ -71,6 +73,7 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   mostrarCamposRegistro: boolean = false
 
   mapHorarioCompleto = new Map<string, Array<string>>();
+
 
   constructor(
     public dialog: MatDialog,
@@ -174,13 +177,32 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   openModalRepresentanteLegal() {
     const dialogRef = this.dialog.open(MdEstablecRepresentanteLegalComponent, {
+      data: { representanteLegal: this.representanteLegal },
       width:'990px',
       height:'550px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
+        this.dataSourceRepresentanteLegal = []
 
+        let primeraClave = result?.keys()?.next()?.value;
+        let primerValor = result?.get(primeraClave);
+
+        if(this.mapRepresentanteLegal.has(primeraClave)) {
+          let currentValue: any = this.mapHorarioCompleto.get(primeraClave);
+          this.mapRepresentanteLegal.set(primeraClave, {...structuredClone(currentValue), ...structuredClone(primerValor)});
+        } else {
+          this.mapRepresentanteLegal.set(primeraClave, primerValor);
+        }
+
+        for (let [key, value] of this.mapRepresentanteLegal.entries()) {
+          this.dataSourceRepresentanteLegal.push({
+            nombreCompleto: value?.representanteLegal?.REPNOMBCOMP,
+            cargo: value?.cargo?.CARDESCRIP,
+            situacion: value?.situacion?.nombre
+          })
+        }
       }
     });
   }
@@ -258,6 +280,11 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   selectRowDetalleHorario(row: any, i: any) {
 
+  }
+
+  selectRowRepresentanteLegal(row: any, i: any) {
+    this.selectionRowRepresentanteLegal = true
+    this.representanteLegal = this.dataSourceRepresentanteLegal[i]
   }
 
 }

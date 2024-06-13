@@ -12,7 +12,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Cod, Representante:</label>
-          <input type="text" class="form-control inputText01 inputDisabled" readonly>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoCodigoRepresentanteLegal">
         </div>
       </div>
       <div class="flex flex-col gap-4 w-full p-4">
@@ -70,7 +70,7 @@
             <div class="flex flex-col gap-2 w-full p-2">
               <div class="campo">
                 <label for="">Nro Doc.</label>
-                <input type="text" class="form-control inputText01">
+                <input type="text" class="form-control inputText01" [(ngModel)]="nroDocumentoInicioActividad">
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@
             <div class="flex flex-col gap-2 w-full p-2">
               <div class="campo">
                 <label for="">Fecha Doc.</label>
-                <input [matDatepicker]="dtFechaInicioActividad"  class="form-control inputText01">
+                <input [matDatepicker]="dtFechaInicioActividad"  class="form-control inputText01" [(ngModel)]="fechaInicioActividad">
                 <mat-datepicker #dtFechaInicioActividad></mat-datepicker>
                 <button  class="boton-icon" (click)="dtFechaInicioActividad.open()">
                   <span class="material-icons">calendar_month</span>
@@ -108,7 +108,7 @@
             <div class="flex flex-col gap-2 w-full p-2">
               <div class="campo">
                 <label for="">Nro Doc.</label>
-                <input type="text" class="form-control inputText01">
+                <input type="text" class="form-control inputText01"  [(ngModel)]="nroDocumentoFinActividad">
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
             <div class="flex flex-col gap-2 w-full p-2">
               <div class="campo">
                 <label for="">Fecha Doc.</label>
-                <input [matDatepicker]="dtFechaFinActividad"  class="form-control inputText01">
+                <input [matDatepicker]="dtFechaFinActividad"  class="form-control inputText01" [(ngModel)]="fechaFinActividad">
                 <mat-datepicker #dtFechaFinActividad></mat-datepicker>
                 <button  class="boton-icon" (click)="dtFechaFinActividad.open()">
                   <span class="material-icons">calendar_month</span>
@@ -129,5 +129,5 @@
     </div>
   </div>
 </div>
-<button class="btn btn-primary"><span class="material-icons">check</span>Aceptar</button>
-<button class="btn btn-danger"><span class="material-icons">cancel</span>Salir</button>
+<button (click)="onAceptar()" class="btn btn-primary"><span class="material-icons">check</span>Aceptar</button>
+<button (click)="onSalir()" class="btn btn-danger"><span class="material-icons">cancel</span>Salir</button>

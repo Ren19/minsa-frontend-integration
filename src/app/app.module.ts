@@ -149,7 +149,7 @@ import { MdBusquedaMotivoComponent } from './pages/establecimiento/modals/md-bus
     NgSelectModule,
     MatTabsModule,
     MatRadioModule,
-    MatDatepickerModule
+    MatDatepickerModule,
     //FormGroup,
     //FormBuilder
   ],

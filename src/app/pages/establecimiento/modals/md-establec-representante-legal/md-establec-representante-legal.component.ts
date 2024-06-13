@@ -12,19 +12,28 @@ import { ComunService } from 'src/app/services/comun.service';
 })
 export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
+  nroDocumentoInicioActividad: any = null
+  fechaInicioActividad: any = null
   listaInicioActTipoDocumento:any = [];
   selecionarInicioActTipoDocumento: any = null
 
+  nroDocumentoFinActividad: any = null
+  fechaFinActividad: any = null
   listaFinActTipoDocumento:any = [];
   selecionarFinActTipoDocumento: any = null
 
   listaSituacion:any = [];
   selecionarSituacion: any = null
 
+  listaCargo: any = null;
   codigoCargo: any = null
   textocargo: any = null
 
+  listaRepresentanteLegal: any = null
   textoNombrRepresentanteLegal: any = null
+  textoCodigoRepresentanteLegal: any = null
+
+  mapRepresentanteLegal = new Map<string, any>();
 
   constructor(
     public dialogRef: MatDialogRef<any>,
@@ -37,6 +46,22 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
   ngOnInit() {
     this.getSituacion()
     this.getComboTipoDocumentoReferencia()
+    if(this.data.representanteLegal != null) {
+      console.log(this.data.representanteLegal)
+      /*representanteLegal: this.listaRepresentanteLegal,
+      cargo: this.listaCargo,
+      situacion: this.selecionarSituacion,
+      inicioActividad: {
+        tipoDocumento: this.selecionarInicioActTipoDocumento,
+        nroDocumento: this.nroDocumentoInicioActividad,
+        fechaDocumento: this.fechaInicioActividad
+      },
+      finActividad: {
+        tipoDocumento: this.selecionarFinActTipoDocumento,
+        nroDocumento: this.nroDocumentoFinActividad,
+        fechaDocumento: this.fechaFinActividad
+      },*/
+    }
   }
 
   onNoClick(){
@@ -61,7 +86,7 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
   onChangeSituacion(event: any) {
     this.selecionarSituacion = null
     if(event) {
-      this.selecionarSituacion = event.codigo
+      this.selecionarSituacion = event
     }
   }
 
@@ -87,6 +112,7 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
+        this.listaCargo = result
         this.codigoCargo = result.CARCODIGO
         this.textocargo = result.CARDESCRIP
       }
@@ -101,9 +127,38 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
+        this.listaRepresentanteLegal = result
         this.textoNombrRepresentanteLegal = result.REPNOMBCOMP
+        this.textoCodigoRepresentanteLegal = result.REPNUMEINS
       }
     });
+  }
+
+  onAceptar() {
+    if(!this.mapRepresentanteLegal.has(this.textoCodigoRepresentanteLegal)) {
+      let newData = {
+        representanteLegal: this.listaRepresentanteLegal,
+        cargo: this.listaCargo,
+        situacion: this.selecionarSituacion,
+        inicioActividad: {
+          tipoDocumento: this.selecionarInicioActTipoDocumento,
+          nroDocumento: this.nroDocumentoInicioActividad,
+          fechaDocumento: this.fechaInicioActividad
+        },
+        finActividad: {
+          tipoDocumento: this.selecionarFinActTipoDocumento,
+          nroDocumento: this.nroDocumentoFinActividad,
+          fechaDocumento: this.fechaFinActividad
+        },
+      };
+      this.mapRepresentanteLegal.set(this.textoCodigoRepresentanteLegal, newData);
+    }
+
+    this.dialogRef.close(this.mapRepresentanteLegal);
+  }
+
+  onSalir() {
+    this.dialogRef.close(null);
   }
 
 }
