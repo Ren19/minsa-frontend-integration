@@ -9,6 +9,7 @@ import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-e
 import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
 import { MdEstablecRepresentanteLegalComponent } from '../modals/md-establec-representante-legal/md-establec-representante-legal.component';
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
+import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -73,7 +74,6 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
   mostrarCamposRegistro: boolean = false
 
   mapHorarioCompleto = new Map<string, Array<string>>();
-
 
   constructor(
     public dialog: MatDialog,
@@ -198,6 +198,7 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
         for (let [key, value] of this.mapRepresentanteLegal.entries()) {
           this.dataSourceRepresentanteLegal.push({
+            codigoRepresentanteLegal: value?.codigoRepresentanteLegal,
             nombreCompleto: value?.representanteLegal?.REPNOMBCOMP,
             cargo: value?.cargo?.CARDESCRIP,
             situacion: value?.situacion?.nombre
@@ -284,7 +285,26 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   selectRowRepresentanteLegal(row: any, i: any) {
     this.selectionRowRepresentanteLegal = true
-    this.representanteLegal = this.dataSourceRepresentanteLegal[i]
+    this.representanteLegal = this.mapRepresentanteLegal.get(this.dataSourceRepresentanteLegal[i].codigoRepresentanteLegal)
+  }
+
+  onEliminarRepresentanteLegal() {
+    this.mapRepresentanteLegal.delete(this.representanteLegal.codigoRepresentanteLegal)
+    this.dataSourceRepresentanteLegal = []
+    this.selectionRowRepresentanteLegal = false
+    for (let [key, value] of this.mapRepresentanteLegal.entries()) {
+      this.dataSourceRepresentanteLegal.push({
+        codigoRepresentanteLegal: value?.codigoRepresentanteLegal,
+        nombreCompleto: value?.representanteLegal?.REPNOMBCOMP,
+        cargo: value?.cargo?.CARDESCRIP,
+        situacion: value?.situacion?.nombre
+      })
+    }
+  }
+
+  onNuevoRepresentanteLegal() {
+    this.representanteLegal = null
+    this.openModalRepresentanteLegal()
   }
 
 }

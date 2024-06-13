@@ -24,6 +24,7 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
   listaSituacion:any = [];
   selecionarSituacion: any = null
+  codigoSelecionarSituacion: any = null
 
   listaCargo: any = null;
   codigoCargo: any = null
@@ -47,20 +48,25 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
     this.getSituacion()
     this.getComboTipoDocumentoReferencia()
     if(this.data.representanteLegal != null) {
-      console.log(this.data.representanteLegal)
-      /*representanteLegal: this.listaRepresentanteLegal,
-      cargo: this.listaCargo,
-      situacion: this.selecionarSituacion,
-      inicioActividad: {
-        tipoDocumento: this.selecionarInicioActTipoDocumento,
-        nroDocumento: this.nroDocumentoInicioActividad,
-        fechaDocumento: this.fechaInicioActividad
-      },
-      finActividad: {
-        tipoDocumento: this.selecionarFinActTipoDocumento,
-        nroDocumento: this.nroDocumentoFinActividad,
-        fechaDocumento: this.fechaFinActividad
-      },*/
+      let datosRepresentanteLegal = this.data.representanteLegal
+
+      this.textoCodigoRepresentanteLegal = datosRepresentanteLegal?.representanteLegal?.REPNUMEINS
+      this.textoNombrRepresentanteLegal = datosRepresentanteLegal?.representanteLegal?.REPNOMBCOMP
+
+      this.listaRepresentanteLegal = datosRepresentanteLegal?.representanteLegal
+      this.listaCargo = datosRepresentanteLegal?.cargo
+      this.textocargo = datosRepresentanteLegal?.cargo?.CARDESCRIP
+
+      this.selecionarSituacion = datosRepresentanteLegal?.situacion
+      this.codigoSelecionarSituacion = datosRepresentanteLegal?.situacion?.codigo
+
+      this.selecionarInicioActTipoDocumento = datosRepresentanteLegal?.inicioActividad?.tipoDocumento
+      this.nroDocumentoInicioActividad = datosRepresentanteLegal?.inicioActividad?.nroDocumento
+      this.fechaInicioActividad = datosRepresentanteLegal?.inicioActividad?.fechaDocumento
+
+      this.selecionarFinActTipoDocumento = datosRepresentanteLegal?.finActividad?.tipoDocumento
+      this.nroDocumentoFinActividad = datosRepresentanteLegal?.finActividad?.nroDocumento
+      this.fechaFinActividad =  datosRepresentanteLegal?.finActividad?.fechaDocumento
     }
   }
 
@@ -137,6 +143,7 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
   onAceptar() {
     if(!this.mapRepresentanteLegal.has(this.textoCodigoRepresentanteLegal)) {
       let newData = {
+        codigoRepresentanteLegal: this.textoCodigoRepresentanteLegal,
         representanteLegal: this.listaRepresentanteLegal,
         cargo: this.listaCargo,
         situacion: this.selecionarSituacion,

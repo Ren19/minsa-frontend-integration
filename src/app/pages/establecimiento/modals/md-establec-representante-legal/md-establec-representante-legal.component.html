@@ -20,6 +20,7 @@
           <label for="">Situación:</label>
           <ng-select
           [items]="listaSituacion"
+          [(ngModel)]="codigoSelecionarSituacion"
           bindLabel="nombre"
           bindValue="codigo"
           (change)="onChangeSituacion($event)"
@@ -33,7 +34,7 @@
         <div class="campo">
           <label for="">Apellidos y Nombres:</label>
           <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
-          <button (click)="openModalBuscarRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
+          <button *ngIf="data.representanteLegal == null" (click)="openModalBuscarRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
           <!--<button class="boton-icon bnt01"><span class="material-icons">visibility</span></button>-->
         </div>
         <div class="campo">
@@ -58,6 +59,7 @@
                 <label for="">Tipo Doc.</label>
                 <ng-select
                 [items]="listaInicioActTipoDocumento"
+                [(ngModel)]="selecionarInicioActTipoDocumento"
                 bindLabel="nombre"
                 bindValue="codigo"
                 (change)="onChangeInicioActTipoDocumento($event)"
@@ -96,6 +98,7 @@
                 <label for="">Tipo Doc.</label>
                 <ng-select
                 [items]="listaFinActTipoDocumento"
+                [(ngModel)]="selecionarFinActTipoDocumento"
                 bindLabel="nombre"
                 bindValue="codigo"
                 (change)="onChangeFinActTipoDocumento($event)"

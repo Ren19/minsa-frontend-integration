@@ -311,9 +311,9 @@
             <div class="flex justify-between items-center pr-2 pb-2">
               <h2>Representante legal</h2>
               <div class="flex gap-4">
-                <button class="boton-icon bnt01" (click)="openModalRepresentanteLegal()"><span class="material-icons">add</span></button>
+                <button class="boton-icon bnt01" (click)="onNuevoRepresentanteLegal()"><span class="material-icons">add</span></button>
                 <button *ngIf="selectionRowRepresentanteLegal" (click)="openModalRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">edit</span></button>
-                <button *ngIf="selectionRowRepresentanteLegal" class="boton-icon bnt01"><span class="material-icons">delete</span></button>
+                <button *ngIf="selectionRowRepresentanteLegal" (click)="onEliminarRepresentanteLegal()" class="boton-icon bnt01"><span class="material-icons">delete</span></button>
               </div>
             </div>
 
