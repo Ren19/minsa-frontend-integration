@@ -7,9 +7,9 @@ import { PeriodicElement } from '../../representantebusqueda01/representantebusq
 import { MdEstablecBusquedaEntidadComponent } from '../modals/md-establec-busqueda-entidad/md-establec-busqueda-entidad.component';
 import { MdEstablecDistritoComponent } from '../modals/md-establec-distrito/md-establec-distrito.component';
 import { MdEstablecMostrarEntidadComponent } from '../modals/md-establec-mostrar-entidad/md-establec-mostrar-entidad.component';
+import { MdEstablecRegistroPersonalComponent } from '../modals/md-establec-registro-personal/md-establec-registro-personal.component';
 import { MdEstablecRepresentanteLegalComponent } from '../modals/md-establec-representante-legal/md-establec-representante-legal.component';
 import { MdEstablecSubSectorComponent } from '../modals/md-establec-sub-sector/md-establec-sub-sector.component';
-import { OPCIONES_BOTONES } from 'src/app/common/global-constants';
 
 @Component({
   selector: 'app-tab-establec-datos-generales',
@@ -61,7 +61,9 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
 
   displayedColumnsPersonal: string[] = ['nombreCompleto', 'cargo', 'sit'];
   dataSourcePersonal: any = []
-  selectionPersonal: boolean = false
+  mapPersonal = new Map<string, any>();
+  selectionRowPersonal: boolean = false
+  personal = null
 
   displayedColumnsHorario: string[] = ['dia', 'horario'];
   dataSourceHorario: any = []
@@ -306,5 +308,54 @@ export class TabEstablecDatosGeneralesComponent implements OnInit {
     this.representanteLegal = null
     this.openModalRepresentanteLegal()
   }
+
+
+  openModalPersonal() {
+    const dialogRef = this.dialog.open(MdEstablecRegistroPersonalComponent, {
+      data: { personal: this.personal },
+      width:'990px',
+      height:'550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result != null) {
+        /*this.dataSourceRepresentanteLegal = []
+
+        let primeraClave = result?.keys()?.next()?.value;
+        let primerValor = result?.get(primeraClave);
+
+        if(this.mapRepresentanteLegal.has(primeraClave)) {
+          let currentValue: any = this.mapHorarioCompleto.get(primeraClave);
+          this.mapRepresentanteLegal.set(primeraClave, {...structuredClone(currentValue), ...structuredClone(primerValor)});
+        } else {
+          this.mapRepresentanteLegal.set(primeraClave, primerValor);
+        }
+
+        for (let [key, value] of this.mapRepresentanteLegal.entries()) {
+          this.dataSourceRepresentanteLegal.push({
+            codigoRepresentanteLegal: value?.codigoRepresentanteLegal,
+            nombreCompleto: value?.representanteLegal?.REPNOMBCOMP,
+            cargo: value?.cargo?.CARDESCRIP,
+            situacion: value?.situacion?.nombre
+          })
+        }*/
+      }
+    });
+  }
+
+  onNuevoPersonal() {
+    this.personal = null
+    this.openModalPersonal()
+  }
+
+  onEliminarPersonal() {
+    this.mapPersonal.delete(this.representanteLegal.codigoRepresentanteLegal)
+    this.dataSourcePersonal = []
+    this.selectionRowPersonal = false
+    for (let [key, value] of this.mapPersonal.entries()) {
+      this.dataSourcePersonal.push()
+    }
+  }
+
 
 }

@@ -82,6 +82,7 @@ import { TabInfTpPrdSanComponent } from './pages/establecimiento/tab-establec-al
 import { TabInfActividadComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-actividad/tab-inf-actividad.component';
 import { TabInfObservacionesComponent } from './pages/establecimiento/tab-establec-almacenes-plantas/tabs/inferior/tab-inf-observaciones/tab-inf-observaciones.component';
 import { MdBusquedaMotivoComponent } from './pages/establecimiento/modals/md-busqueda-motivo/md-busqueda-motivo.component';
+import { MdEstablecRegistroPersonalComponent } from './pages/establecimiento/modals/md-establec-registro-personal/md-establec-registro-personal.component';
 //import { FormGroup, FormBuilder } from '@angular/forms';
 
 
@@ -123,6 +124,7 @@ import { MdBusquedaMotivoComponent } from './pages/establecimiento/modals/md-bus
     TabInfActividadComponent,
     TabInfObservacionesComponent,
     MdBusquedaMotivoComponent,
+    MdEstablecRegistroPersonalComponent,
     //DatosgeneralesComponent,
     //ActividadesComponent,
     //AlmacenesplantasComponent,

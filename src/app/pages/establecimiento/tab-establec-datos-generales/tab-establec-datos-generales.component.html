@@ -348,9 +348,9 @@
             <div class="flex justify-between items-center pr-2 pb-2">
               <h2>Personal</h2>
               <div class="flex gap-4">
-                <button class="boton-icon bnt01"><span class="material-icons">add</span></button>
-                <button class="boton-icon bnt01"><span class="material-icons">edit</span></button>
-                <button class="boton-icon bnt01"><span class="material-icons">delete</span></button>
+                <button class="boton-icon bnt01" (click)="onNuevoPersonal()"><span class="material-icons">add</span></button>
+                <button *ngIf="selectionRowPersonal" (click)="openModalPersonal()" class="boton-icon bnt01"><span class="material-icons">edit</span></button>
+                <button *ngIf="selectionRowPersonal" (click)="onEliminarPersonal()"  class="boton-icon bnt01"><span class="material-icons">delete</span></button>
               </div>
             </div>
 

@@ -1,0 +1,138 @@
+<div class="flex flex-col gap-2 p-2">
+  <div class="header">
+    <h3>Registro de Personal del Establecimiento</h3>
+    <button class="btn_modal_header" (click)="onNoClick()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+</div>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Cod. Regente:</label>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoCodigoRepresentanteLegal">
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Situación:</label>
+          <ng-select
+          [items]="listaSituacion"
+          [(ngModel)]="codigoSelecionarSituacion"
+          bindLabel="nombre"
+          bindValue="codigo"
+          (change)="onChangeSituacion($event)"
+          >
+          </ng-select>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-full">
+      <div class="flex flex-col gap-4 w-full p-4">
+        <div class="campo">
+          <label for="">Apellidos y Nombres:</label>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
+          <button *ngIf="data.representanteLegal == null" (click)="openModalBuscarRegente()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
+        </div>
+        <div class="campo">
+          <label for="">Nro° Colegiatura:</label>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
+        </div>
+        <div class="campo">
+          <label for="">Cargo:</label>
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textocargo">
+          <button (click)="openModalBuscarCargo()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols gap-4 p-2">
+  <div class="flex flex-col gap-1">
+    <div class="m-card">
+      <div class="flex w-full">
+        <div class="m-card">
+          <h2>Inicio de Actividad</h2>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Tipo Doc.</label>
+                <ng-select
+                [items]="listaInicioActTipoDocumento"
+                [(ngModel)]="selecionarInicioActTipoDocumento"
+                bindLabel="nombre"
+                bindValue="codigo"
+                (change)="onChangeInicioActTipoDocumento($event)"
+                >
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Nro Doc.</label>
+                <input type="text" class="form-control inputText01" [(ngModel)]="nroDocumentoInicioActividad">
+              </div>
+            </div>
+          </div>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Fecha Doc.</label>
+                <input [matDatepicker]="dtFechaInicioActividad"  class="form-control inputText01" [(ngModel)]="fechaInicioActividad">
+                <mat-datepicker #dtFechaInicioActividad></mat-datepicker>
+                <button  class="boton-icon" (click)="dtFechaInicioActividad.open()">
+                  <span class="material-icons">calendar_month</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <h2>Fin de Actividad</h2>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Tipo Doc.</label>
+                <ng-select
+                [items]="listaFinActTipoDocumento"
+                [(ngModel)]="selecionarFinActTipoDocumento"
+                bindLabel="nombre"
+                bindValue="codigo"
+                (change)="onChangeFinActTipoDocumento($event)"
+                >
+                </ng-select>
+              </div>
+            </div>
+          </div>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Nro Doc.</label>
+                <input type="text" class="form-control inputText01"  [(ngModel)]="nroDocumentoFinActividad">
+              </div>
+            </div>
+          </div>
+          <div class="flex w-full">
+            <div class="flex flex-col gap-2 w-full p-2">
+              <div class="campo">
+                <label for="">Fecha Doc.</label>
+                <input [matDatepicker]="dtFechaFinActividad"  class="form-control inputText01" [(ngModel)]="fechaFinActividad">
+                <mat-datepicker #dtFechaFinActividad></mat-datepicker>
+                <button  class="boton-icon" (click)="dtFechaFinActividad.open()">
+                  <span class="material-icons">calendar_month</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
