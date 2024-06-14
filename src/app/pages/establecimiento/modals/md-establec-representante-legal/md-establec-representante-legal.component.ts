@@ -112,6 +112,9 @@ export class MdEstablecRepresentanteLegalComponent implements OnInit {
 
   openModalBuscarCargo() {
     const dialogRef = this.dialog.open(MdEstablecBusquedaCargoComponent, {
+      data: {
+        condicionCargoBusqueda: '%'
+      },
       width:'850px',
       height:'550px',
     });

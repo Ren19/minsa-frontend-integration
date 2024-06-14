@@ -2,8 +2,6 @@ import { SelectionModel } from '@angular/cdk/collections';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { PeriodicElement } from 'src/app/pages/representantebusqueda01/representantebusqueda01.component';
-import { ComunService } from 'src/app/services/comun.service';
-import { EstablecimientoService } from 'src/app/services/establecimiento.service';
 import { RepresentanteLegalService } from 'src/app/services/representante-legal.service';
 import { MdEstablecBusquedaDisaComponent } from '../md-establec-busqueda-disa/md-establec-busqueda-disa.component';
 

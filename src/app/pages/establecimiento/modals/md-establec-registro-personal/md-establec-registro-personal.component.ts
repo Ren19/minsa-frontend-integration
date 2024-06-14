@@ -2,8 +2,8 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
 import { RepresentanteLegalService } from 'src/app/services/representante-legal.service';
-import { MdEstablecBusquedaRepresentanteLegalComponent } from '../md-establec-busqueda-representante-legal/md-establec-busqueda-representante-legal.component';
 import { MdEstablecBusquedaCargoComponent } from '../md-establec-busqueda-cargo/md-establec-busqueda-cargo.component';
+import { MdEstablecBusquedaRegenteComponent } from '../md-establec-busqueda-regente/md-establec-busqueda-regente.component';
 
 @Component({
   selector: 'app-md-establec-registro-personal',
@@ -30,11 +30,11 @@ export class MdEstablecRegistroPersonalComponent {
   codigoCargo: any = null
   textocargo: any = null
 
-  listaRepresentanteLegal: any = null
-  textoNombrRepresentanteLegal: any = null
-  textoCodigoRepresentanteLegal: any = null
+  listaPersonal: any = null
+  textoNombrPersonal: any = null
+  textoCodigoPersonal: any = null
 
-  mapRepresentanteLegal = new Map<string, any>();
+  mapPersonal = new Map<string, any>();
 
   constructor(
     public dialogRef: MatDialogRef<any>,
@@ -56,22 +56,25 @@ export class MdEstablecRegistroPersonalComponent {
   }
 
   openModalBuscarRegente() {
-    const dialogRef = this.dialog.open(MdEstablecBusquedaRepresentanteLegalComponent, {
+    const dialogRef = this.dialog.open(MdEstablecBusquedaRegenteComponent, {
       width:'60%',
       height:'550px',
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
-        this.listaRepresentanteLegal = result
-        this.textoNombrRepresentanteLegal = result.REPNOMBCOMP
-        this.textoCodigoRepresentanteLegal = result.REPNUMEINS
+        this.listaPersonal = result
+        this.textoNombrPersonal = result.REPNOMBCOMP
+        this.textoCodigoPersonal = result.REPNUMEINS
       }
     });
   }
 
   openModalBuscarCargo() {
     const dialogRef = this.dialog.open(MdEstablecBusquedaCargoComponent, {
+      data: {
+        condicionCargoBusqueda: 'S'
+      },
       width:'850px',
       height:'550px',
     });

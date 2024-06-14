@@ -29,7 +29,7 @@ export class MdEstablecBusquedaCargoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getCargo('%')
+    this.getCargo(this.data.condicionCargoBusqueda)
   }
 
   public onNoClick(){

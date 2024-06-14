@@ -12,7 +12,7 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Cod. Regente:</label>
-          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoCodigoRepresentanteLegal">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoCodigoPersonal">
         </div>
       </div>
       <div class="flex flex-col gap-4 w-full p-4">
@@ -33,12 +33,12 @@
       <div class="flex flex-col gap-4 w-full p-4">
         <div class="campo">
           <label for="">Apellidos y Nombres:</label>
-          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrPersonal">
           <button *ngIf="data.representanteLegal == null" (click)="openModalBuscarRegente()" class="boton-icon bnt01"><span class="material-icons">search</span></button>
         </div>
         <div class="campo">
           <label for="">Nro° Colegiatura:</label>
-          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrRepresentanteLegal">
+          <input type="text" class="form-control inputText01 inputDisabled" readonly [value]="textoNombrPersonal">
         </div>
         <div class="campo">
           <label for="">Cargo:</label>
