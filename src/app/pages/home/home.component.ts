@@ -65,7 +65,7 @@ const TREE_DATA: MenuOpcion[] = [
       },
       {
         name: 'Registro',
-        children: [{ name: 'Establecimiento=#' },
+        children: [{ name: 'Establecimiento=http://localhost:4200/establecimiento' },
         { name: 'Director Técnico=#' },
         { name: 'Representante Legal=#' },
         { name: 'Entidad=#' },

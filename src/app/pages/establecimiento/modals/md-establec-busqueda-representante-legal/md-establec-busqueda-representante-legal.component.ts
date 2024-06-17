@@ -96,6 +96,9 @@ export class MdEstablecBusquedaRepresentanteLegalComponent implements OnInit {
 
   openModalBuscarDisa() {
     const dialogRef = this.dialog.open(MdEstablecBusquedaDisaComponent, {
+      data: {
+        filtroDisa: "%"
+      },
       width:'990px',
       height:'550px',
     });
