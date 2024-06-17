@@ -199,5 +199,12 @@ export class ComunService {
     return this.httpClient.get<any>(`${this.url}/getBuscarRenaes1`, options);
   }
 
+  getSituacion(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getSituacion`, httpOptions);
+  }
+
+  getProfesion(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getProfesion`, httpOptions);
+  }
 
 }

@@ -1,0 +1,48 @@
+<div class="flex flex-col gap-2 p-2">
+  <div class="header">
+    <h3>Busqueda de Profesión</h3>
+    <button class="btn_modal_header" (click)="onNoClick()">
+      <span class="material-icons">close</span>
+    </button>
+  </div>
+</div>
+<div class="grid grid-cols gap-4 p-2">
+  <div class="col-start-1 col-end-5 m-card">
+    <div class="flex w-full">
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Buscar Por:</label>
+          <ng-select [items]="listOpcionesBusqueda"
+            bindLabel="nombre"
+            bindValue="codigo"
+            (change)="onChangeBuscarPor($event)"
+          >
+          </ng-select>
+        </div>
+      </div>
+      <div class="flex flex-col gap-1 w-full p-4">
+        <div class="campo">
+          <label for="">Expresión:</label>
+          <input type="text" class="form-control inputText01" (keyup)="onExpresion($event)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols gap-4 p-2">
+  <table mat-table [dataSource]="dataSource" class="table border">
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+      <td mat-cell *matCellDef="let element"> {{element.PRFDESCRIP}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="selectRow(row)" *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[3, 6, 9]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

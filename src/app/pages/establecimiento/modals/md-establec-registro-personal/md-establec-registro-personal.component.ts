@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ComunService } from 'src/app/services/comun.service';
 import { RepresentanteLegalService } from 'src/app/services/representante-legal.service';
@@ -10,7 +10,7 @@ import { MdEstablecBusquedaRegenteComponent } from '../md-establec-busqueda-rege
   templateUrl: './md-establec-registro-personal.component.html',
   styleUrls: ['./md-establec-registro-personal.component.css']
 })
-export class MdEstablecRegistroPersonalComponent {
+export class MdEstablecRegistroPersonalComponent implements OnInit {
 
   nroDocumentoInicioActividad: any = null
   fechaInicioActividad: any = null
@@ -33,6 +33,7 @@ export class MdEstablecRegistroPersonalComponent {
   listaPersonal: any = null
   textoNombrPersonal: any = null
   textoCodigoPersonal: any = null
+  textoColegiaturaPersonal: any = null
 
   mapPersonal = new Map<string, any>();
 
@@ -43,6 +44,10 @@ export class MdEstablecRegistroPersonalComponent {
     public representanteLegalService: RepresentanteLegalService,
     public comunService: ComunService,
   ) { }
+
+  ngOnInit() {
+    this.getComboSituacion()
+  }
 
   onNoClick(){
     this.dialogRef.close(null);
@@ -64,8 +69,10 @@ export class MdEstablecRegistroPersonalComponent {
     dialogRef.afterClosed().subscribe(result => {
       if(result != null) {
         this.listaPersonal = result
-        this.textoNombrPersonal = result.REPNOMBCOMP
-        this.textoCodigoPersonal = result.REPNUMEINS
+        this.textoNombrPersonal = result.RGDNOMBCOMP
+        this.textoCodigoPersonal = result.RGDCODIGO
+        this.textoColegiaturaPersonal = result.RGDNUMECLG
+
       }
     });
   }
@@ -100,6 +107,13 @@ export class MdEstablecRegistroPersonalComponent {
     if(event) {
       this.selecionarFinActTipoDocumento = event.codigo
     }
+  }
+
+  public getComboSituacion()
+  {
+    this.comunService.getSituacion().subscribe(response => {
+        this.listaSituacion = response.data;
+    })
   }
 
 }

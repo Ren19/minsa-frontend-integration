@@ -107,6 +107,9 @@ export class MdEstablecSolicitudInscripcionComponent implements OnInit {
 
   openModalBuscarDisa() {
     const dialogRef = this.dialog.open(MdEstablecBusquedaDisaComponent, {
+      data: {
+        filtroDisa: "1"
+      },
       width:'990px',
       height:'550px',
     });

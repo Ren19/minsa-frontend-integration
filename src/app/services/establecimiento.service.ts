@@ -48,8 +48,13 @@ export class EstablecimientoService {
     return this.httpClient.get<any>(`${this.url}/getComboFormatoDDJJ`, httpOptions);
   }
 
-  getDisas(): Observable<any> {
-    return this.httpClient.get<any>(`${this.url}/getDisas`, httpOptions);
+  getDisas(cMostrar: any): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('cMostrar', cMostrar);
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/getDisas`, options);
   }
 
   getFiltrar(opcion: number, filtro: string, tipo?: string, disa?: string): Observable<any> {
@@ -236,6 +241,26 @@ export class EstablecimientoService {
     const options = { httpOptions, params };
 
     return this.httpClient.get<any>(`${this.url}/getSolicitudPendientePantalla2`, options);
+  }
+
+  getProcedenciaRegente(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getProcedenciaRegente`, httpOptions);
+  }
+
+  getEstadoRegente(): Observable<any> {
+    return this.httpClient.get<any>(`${this.url}/getEstadoRegente`, httpOptions);
+  }
+
+  filtrarRegente(prfcodigo: any, dsacodigo: any, eddcodigo: any, prccodigo: any): Observable<any> {
+    let params = new HttpParams();
+    params = params.set('prfcodigo', prfcodigo);
+    params = params.set('dsacodigo', dsacodigo);
+    params = params.set('eddcodigo', eddcodigo);
+    params = params.set('prccodigo', prccodigo);
+
+    const options = { httpOptions, params };
+
+    return this.httpClient.get<any>(`${this.url}/filtrarRegente`, options);
   }
 
 }

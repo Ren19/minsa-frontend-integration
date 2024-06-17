@@ -1,27 +1,23 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { EstablecimientoService } from 'src/app/services/establecimiento.service';
+import { ComunService } from 'src/app/services/comun.service';
 
 @Component({
-  selector: 'app-md-establec-busqueda-disa',
-  templateUrl: './md-establec-busqueda-disa.component.html',
-  styleUrls: ['./md-establec-busqueda-disa.component.css']
+  selector: 'app-md-establec-busqueda-profesion',
+  templateUrl: './md-establec-busqueda-profesion.component.html',
+  styleUrls: ['./md-establec-busqueda-profesion.component.css']
 })
-export class MdEstablecBusquedaDisaComponent implements OnInit {
+export class MdEstablecBusquedaProfesionComponent implements OnInit {
 
   listOpcionesBusqueda:any= [
     {
-      "codigo": "DSADESCRIP",
+      "codigo": "PRFDESCRIP",
       "nombre": "DESCRIPCION"
-    },
-    {
-      "codigo": "DPTDESCRIP",
-      "nombre": "DEPARTAMENTO"
     },
   ]
   selectBuscarPor: any = null
 
-  displayedColumns: string[] = ['descripcion', 'departamento'];
+  displayedColumns: string[] = ['descripcion'];
   dataSource: any = []
   dataSourceCopy: any = []
 
@@ -29,11 +25,11 @@ export class MdEstablecBusquedaDisaComponent implements OnInit {
     public dialogRef: MatDialogRef<any>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialog: MatDialog,
-    public establecimientoService: EstablecimientoService
+    public comunService: ComunService
   ) { }
 
   ngOnInit() {
-    this.getDisas(this.data.filtroDisa)
+    this.getProfesion()
   }
 
   public onNoClick(){
@@ -48,10 +44,10 @@ export class MdEstablecBusquedaDisaComponent implements OnInit {
   }
 
   onExpresion(event: any) {
-    let campoFiltrar = this.selectBuscarPor ?? "DSADESCRIP"
+    let campoFiltrar = this.selectBuscarPor ?? "PRFDESCRIP"
     let contenido = event.target.value.toUpperCase()
     let copy = structuredClone(this.dataSourceCopy)
-    let resultadosFiltrados = copy.filter((item) => item[campoFiltrar].toUpperCase().includes(contenido));
+    let resultadosFiltrados = copy.filter((item) => item[campoFiltrar].includes(contenido));
     this.dataSource = resultadosFiltrados
   }
 
@@ -59,8 +55,8 @@ export class MdEstablecBusquedaDisaComponent implements OnInit {
     this.dialogRef.close(row);
   }
 
-  getDisas(codigo: any) {
-    this.establecimientoService.getDisas(codigo).subscribe(response => {
+  getProfesion() {
+    this.comunService.getProfesion().subscribe(response => {
         this.dataSource = response.data
         this.dataSourceCopy = response.data
     })
